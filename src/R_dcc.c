@@ -1,28 +1,3 @@
-/***************************************************************************************
-# returning the conditional variances, the dynamic conditional correlations and the 
-# standardised residuals. This code is used in constructing the log-likelihood function 
-# of a DCC GARCH model.
-
-dyn.load("ccgarch.dll")
-dcc.vola = function(data, a, A, B, dcc.para){
-   xsq = data^2
-   h = .Call("vector_garch", xsq, a, A, B)  # ccGARCH volatilities
-   z = data/sqrt(h)                       # standardised residuals
-   uncR = cor(z)                       # unconditional correlation
-   dccpar1 = dcc.para[1]; dccpar2 = dcc.para[2]
-   dcc.est = .Call("dcc_est", z, uncR, dccpar1, dccpar2)
-   list(h = h, dcc = dcc.est, z = z)
-}
-
-nobs = 10000
-x = matrix(rnorm(nobs*3), nobs, 3)
-a = c(0.003, 0.005, 0.001); A = diag(c(0.2,0.3,0.15)); B = diag(c(0.79, 0.6, 0.8))
-dcc.para = c(0.1,0.3)
-temp = dcc.vola(x, a, A, B, dcc.para)
-temp$dcc[1:10,]
-
-dyn.unload("R_dcc.dll")
-***************************************************************************************/
 #include <R.h>
 #include <Rinternals.h>
 #include <Rmath.h>

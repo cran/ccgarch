@@ -1,13 +1,3 @@
-/**************************************************
-computing univariate GARCH(1,1) volatility:
-dyn.load("R_uni_vola.dll")
-uni.vola = function(a,u){
-   usq = u^2
-   cond.h = .Call("uni_vola", a, usq)
-   list(z=u/sqrt(cond.h), h=cond.h)
-}
-u = rnorm(10); a = c(0.1,0.2,0.7)
-**************************************************/
 #include <R.h>
 #include <Rmath.h>
 #include <Rinternals.h>

@@ -1,6 +1,6 @@
 \name{loglik.dcc2}
 \alias{loglik.dcc2}
-\title{ The 2nd step Log-likelihood function for the (E)DCC GARCH  }
+\title{ The 2nd stage Log-likelihood function for the (E)DCC GARCH  }
 
 \description{
 This function returns a log-likelihood of the (E)DCC-GARCH in the 2nd step estimation.

@@ -1,37 +1,3 @@
-/**********************************************************
-# simulating data from a DCCC-GARCH(1,1) and computing a 
-# DCCC-GARCH(1,1) volatility and dynamic conditional correlations
-
-dyn.load("R_dcc_sim.dll")
-dcc.sim = function(nobs, a, A, B, R, dcc.para, nu = Inf, cut=1000){
-  nobs <- nobs+cut
-  Id <- diag(length(a))
-  inih <- solve(Id-A-B)%*%a
-  dccpar1 <- dcc.para[1]; dccpar2 <- dcc.para[2]
-  sim <- .Call("dcc_sim", nobs, a, A, B, inih, R, dccpar1, dccpar2, nu)
-  z <- sim[[1]]; std.z <- sim[[2]]; dcc <- sim[[3]]; h <- sim[[4]]; eps <- sim[[5]]
-  list(z = z[(cut+1):(nobs),], std.z = std.z[(cut+1):(nobs),], dcc = dcc[(cut+1):(nobs),], h = h[(cut+1):(nobs),], eps = eps[(cut+1):(nobs),])
-}
-
-nobs = 1000; cut=1000; nu = 8
-a = c(0.003, 0.005, 0.001); A = diag(c(0.2,0.3,0.15)); B = diag(c(0.75, 0.6, 0.8))
-uncR = matrix(c(1.0, 0.4, 0.3, 0.4, 1.0, 0.12, 0.3, 0.12, 1.0),3,3)
-dcc.para = c(0.01,0.98)
-temp = dcc.sim(nobs,a, A, B, uncR, dcc.para, cut = cut)       # DCC with normal innovations
-temp = dcc.t.sim(nobs,a, A, B, uncR, dcc.para, nu, cut)         # DCC with t innovations
-par(mfcol=c(length(a), 3))
-	plot(temp$h[,1],type="l")
-	plot(temp$h[,2],type="l")
-	plot(temp$h[,3],type="l")
-	plot(temp$eps[,1],type="l")
-	plot(temp$eps[,2],type="l")
-	plot(temp$eps[,3],type="l")
-	plot(temp$dcc[,2],type="l")
-	plot(temp$dcc[,3],type="l")
-	plot(temp$dcc[,6],type="l")
-
-dyn.unload("R_dcc_sim.dll")
-**********************************************************/
 #include <R.h>
 #include <Rinternals.h>
 #include <Rmath.h>

@@ -1,25 +1,3 @@
-/**************************************************
-Simulating univariate GARCH(1,1) volatility:
-dyn.load("R_uni_vola_t_sim.dll")
-uni.vola.sim = function(a, nobs, df = Inf, cut = 1000){
-   nobs = nobs + cut
-   cond.h = .Call("uni_vola_sim", nobs, a, df)
-   h = cond.h[[1]]; eps = cond.h[[2]]
-   list(h = h[(cut+1):nobs], eps = eps[(cut+1):nobs])
-}
-nobs = 1000; cut = 1000; df = 8
-a = c(0.1,0.2,0.7)
-temp.t = uni.vola.sim(a, nobs, df = df, cut= cut)
-temp = uni.vola.sim(a, nobs, cut = cut)
-par(mfcol=c(2,2))
-	plot(temp.t$h,type="l")
-	plot(temp.t$eps,type="l")
-	plot(temp$h,type="l")
-	plot(temp$eps,type="l")
-
-
-dyn.unload("R_uni_vola_t_sim.dll")
-**************************************************/
 #include <R.h>
 #include <Rmath.h>
 #include <Rinternals.h>

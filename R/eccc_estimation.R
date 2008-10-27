@@ -1,27 +1,24 @@
 #*****************************************************************************************************************
 # esitimating an (E)CCC-GARCH(1,1) model
       eccc.estimation <- function(a, A, B, R, dvar, model){
+         dvar <- as.matrix(dvar)
          nobs <- dim(dvar)[1]
          ndim <- dim(dvar)[2]
+         if(!is.matrix(A)||!is.matrix(B)){
+            stop("A or B or both must be matrices")
+         }
          if(model=="diagonal"){
           init <- c(sqrt(a), diag(sqrt(A)), diag(sqrt(B)), R[lower.tri(R)])
          } else {
           init <- c(sqrt(a), as.vector(sqrt(A)), as.vector(sqrt(B)), R[lower.tri(R)])
          }
-            cat("***********************************************************\n")
-            cat("*  Doing the first stage estimation..............         *\n")
-            cat("*                                                         *\n")
          results <- optim(par=init, fn=loglik.eccc, method="BFGS", dvar=dvar, model=model, control=list(maxit=10^5, reltol=1e-15))
       
-         if(results$convergence == 0){
-            cat("*  The first stage completed!                             *\n")
-            cat("*                                                         *\n")
-            cat("*  Proceed to the second stage estimation.                *\n")
-            cat("*                                                         *\n")
-            cat("*  Please wait for a while.......................         *\n")
-         } else {
+         if(results$convergence != 0){
+            cat("***********************************************************\n")
             cat("* Optimization is FAILED.                                 *\n")
            stop("* Fine tuning is required.                                *\n")
+            cat("***********************************************************\n")
          }
          
          estimates <- p.mat(results$par, model=model, ndim=ndim)

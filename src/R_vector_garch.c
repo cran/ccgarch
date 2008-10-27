@@ -1,14 +1,3 @@
-/*************************************************************************
-#computing vector GARCH volatilities: valid for CCC, ECCC, DCC, EDCC models
-dyn.load("R_vector_garch.dll")
-vola = function(x, a, A, B){
-   x = x^2           # x = eps
-  .Call("vector_garch", x, a, A, B)
-}
-eps = matrix(rnorm(10),5,2); a = c(0.1, 0.2); A = diag(c(0.1,0.2)); B = diag(c(0.8,0.7))
-vola(eps, a, A, B)
-dyn.unload("R_vector_garch.dll")
-**************************************************************************/
 #include <R.h>
 #include <Rinternals.h>
 #include <Rmath.h>
