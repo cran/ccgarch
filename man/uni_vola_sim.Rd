@@ -1,9 +1,10 @@
 \name{uni.vola.sim}
 \alias{uni.vola.sim}
-\title{ Simulating a series with univariate GARCH(1,1) volatility}
+\title{ Simulating a series with univariate GARCH(1,1) conditional variances}
 \description{
 
-This function simulates an univariate time series with a GARCH(1,1) volatility.
+This function simulates an univariate time series with GARCH(1,1)
+conditional variances.
 
 }
 
@@ -20,14 +21,14 @@ This function simulates an univariate time series with a GARCH(1,1) volatility.
 }
 \value{
     A list with components:
-    \item{h}{a GARCH(1,1) volatility \eqn{(T \times 1)}}
+    \item{h}{ GARCH(1,1) conditional variances \eqn{(T \times 1)}}
     \item{eps}{a series of error term with the conditional variances "h" \eqn{(T \times 1)}}
 }
 
 \note{
-    When "d.f=Inf", the innovations (the standardised residuals) follow the standard 
+    When \code{d.f=Inf}, the innovations (the standardised residuals) follow the standard 
     normal distribution. Otherwise, they follow a student's \eqn{t}-distribution with 
-    the degrees of freedom equal to "d.f".
+    \code{d.f} degrees of freedom.
 }
 
 \references{
@@ -46,18 +47,18 @@ This function simulates an univariate time series with a GARCH(1,1) volatility.
 }
 
 
-\seealso{ \code{\link{uni.vola}} }
+\seealso{
+  \code{\link{uni.vola}}
+}
 
 \examples{
-
 nobs <- 1000
-nu = 8
-a = c(0.1,0.2,0.7)           #  a <- c(a constant, ARCH parameter, GARCH parameter) 
+nu <- 8
+a <- c(0.1,0.2,0.7)           #  a <- c(a constant, ARCH parameter, GARCH parameter) 
 # with normal innovations
-eps = uni.vola.sim(a, nobs)
+eps <- uni.vola.sim(a, nobs)
 # with t innovations
-eps.t = uni.vola.sim(a, nobs, d.f = df)
-
+eps.t <- uni.vola.sim(a, nobs, d.f = df)
 }
 
 \keyword{ts},

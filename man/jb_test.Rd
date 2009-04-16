@@ -3,7 +3,7 @@
 \title{ The Lomnicki-Jarque-Bera Test of normality (JB test) }
 
 \description{
-This function performs the Lomnicki-Jarque-Bera Test of normality and returns its test statistics and 
+This function performs the Lomnicki-Jarque-Bera Test of normality and returns test statistics and 
 associated p-values.
 }
 
@@ -12,11 +12,11 @@ associated p-values.
 }
 
 \arguments{
-    \item{x}{ a vector or a matrix of variables }
+    \item{x}{ a vector or matrix of variables }
 }
 
 \value{
-    Vector of test statistic and p-value
+    Vector of test statistics and p-value
 }
 \references{
     Jarque, C.M. and A.K. Bera (1987),

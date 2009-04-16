@@ -19,13 +19,19 @@ This function performs the Ljung-Box Test for a univariate time series.
 }
 
 \note{
-    This function is not valid for multiple series.
+    Argument \code{x} must be a vector. When \code{x} is squared
+    residuals, the test is equivalent to the McLeord and Li (1983) test.  
 }
 
 \references{
-    Ljung, G.M. and G. E. P. Box (1978):
+    Ljung, G.M. and G.E.P. Box (1978):
     \dQuote{On a Measure of Lack of Fit in Time-Series Models},
-    \emph{Biometrika}, \bold{65}, 297-303.
+    \emph{Biometrika}, \bold{65}, 297--303.
+    
+    McLeod, A.I., and W.K. Li (1983):
+    \dQuote{Diagnostic checking ARMA time series models using
+      squared-residual autocorrelations}, 
+    \emph{Journal of Time Series Analysis}, \bold{4}, 269--273.
 }
 
 \seealso{
@@ -37,7 +43,7 @@ This function performs the Ljung-Box Test for a univariate time series.
 \examples{
 x <- rnorm(1000)
 ljung.box.test(x)           # returns the LB Test statistic
-ljung.box.test(x^2)         # returns the McLord-Li Test for no-ARCH effect
+ljung.box.test(x^2)         # returns the McLeord-Li Test for no-ARCH effect
 }
 
 \keyword{htest},

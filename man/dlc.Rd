@@ -13,12 +13,12 @@ function (the DCC part) of the (E)DCC-GARCH model.
 
 }
 \arguments{
-  \item{dcc.para}{the estimated DCC parameters  \eqn{(2 \times 1)}}
+  \item{dcc.para}{the estimates of the DCC parameters  \eqn{(2 \times 1)}}
   \item{B}{the estimated GARCH matrix  \eqn{(N \times N)}}
   \item{u}{a matrix of the observed residuals  \eqn{(T \times N)}}
-  \item{h}{a matrix of the estimated volatilities  \eqn{(T \times N)}}
-  \item{model}{a character string describing the model. "diagonal" for the diagonal model 
-               and "extended" for the extended (full ARCH and GARCH parameter matrices) model}
+  \item{h}{a matrix of the estimated conditional variances  \eqn{(T \times N)}}
+  \item{model}{a character string describing the model. \code{"diagonal"} for the diagonal model 
+               and \code{"extended"} for the extended (full ARCH and GARCH parameter matrices) model}
 }
 \value{
     a list with components:
@@ -28,7 +28,7 @@ function (the DCC part) of the (E)DCC-GARCH model.
     \item{d2lc}{the Hessian of the DCC log-likelihood function w.r.t. the DCC parameters \eqn{(T \times 4)}}
     \item{dfdwd2lc}{the cross derivatives of the DCC log-likelihood function \eqn{(T \times npar.h+2)} 
                     \eqn{npar.h} stand for the number of parameters in the GARCH part, \eqn{npar.h = 3N} 
-                    for "diagonal" and \eqn{npar.h = 2N^{2}+N} for "extended".}
+                    for \code{"diagonal"} and \eqn{npar.h = 2N^{2}+N} for \code{"extended"}.}
 }
 
 \references{
@@ -36,7 +36,7 @@ function (the DCC part) of the (E)DCC-GARCH model.
     \dQuote{Theoretical and Empirical Properties of Dynamic
     Conditional Correlation Multivariate GARCH.}
     \emph{Stern Finance Working Paper Series}
-    {FIN}-01-027 (Revised in Dec. 2001),
+    FIN-01-027 (Revised in Dec. 2001),
     New York University Stern School of Business.
 
     Engle, R.F. (2002),
@@ -44,10 +44,10 @@ function (the DCC part) of the (E)DCC-GARCH model.
     Multivariate Generalized Autoregressive Conditional
     Heteroskedasticity Models.}
     \emph{Journal of Business and Economic Statistics}
-    \bold{20}, 339-350.
+    \bold{20}, 339--350.
 
     Hafner, C.M. and H. Herwartz (2008),
-    \dQuote{Analytical Quasi Maximum Likelihood Inference in Multivariate Volatility Models}
+    \dQuote{Analytical Quasi Maximum Likelihood Inference in Multivariate Volatility Models.}
     \emph{Metrika}
     \bold{67}, 219--239.
 }

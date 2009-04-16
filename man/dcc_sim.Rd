@@ -16,35 +16,35 @@ The dimension (\eqn{N}) is determined by the number of elements in the \eqn{a} v
 
 \arguments{
     \item{nobs}{a number of observations to be simulated (\eqn{T})}
-    \item{a}{a vector of constants in the GARCH equation \eqn{(N \times 1)}}
-    \item{A}{an ARCH parameter matrix in the GARCH equation \eqn{(N \times N)}}
-    \item{B}{a GARCH parameter matrix in the GARCH equation \eqn{(N \times N)}}
+    \item{a}{a vector of constants in the vector GARCH equation \eqn{(N \times 1)}}
+    \item{A}{an ARCH parameter matrix in the vector GARCH equation \eqn{(N \times N)}}
+    \item{B}{a GARCH parameter matrix in the vector GARCH equation \eqn{(N \times N)}}
     \item{R}{an unconditional correlation matrix \eqn{(N \times N)}}
     \item{dcc.para}{a vector of the DCC parameters \eqn{(2 \times 1)}}
     \item{d.f}{the degrees of freedom parameter for the \eqn{t}-distribution}
     \item{cut}{the number of observations to be thrown away for removing initial effects of simulation}
-    \item{model}{a character string describing the model. "diagonal" for the diagonal model 
-               and "extended" for the extended (full ARCH and GARCH parameter matrices) model}
+    \item{model}{a character string describing the model. "\code{diagonal}" for the diagonal model 
+               and "\code{extended}" for the extended (full ARCH and GARCH parameter matrices) model}
 }
 
 \value{
     A list with components:
     \item{z}{a matrix of random draws from \eqn{N(\mathbf{0}, \mathbf{I})}.  \eqn{(T \times N)}}
-    \item{std.z}{a matrix of standardised residuals. \eqn{\mathnormal{std.z}_{t} \sim N(0, \mathbf{R}_{t})} 
+    \item{std.z}{a matrix of the standardised residuals. \eqn{\mathnormal{std.z}_{t} \sim N(0, \mathbf{R}_{t})} 
                  where \eqn{\mathbf{R}_{t}} is the DCC matrix at \eqn{t}.
-             If d.f is set to a finite positive real number \eqn{\mathbf{z}_{t} \sim t_{d.f}(0, \mathbf{R}_{t})} \eqn{(T \times N)}}
-    \item{dcc}{a matrix of dynamic conditional correlations \eqn{(T \times N^2)}}
-    \item{h}{a matrix of simulated volatilities \eqn{(T \times N)}}
-    \item{eps}{a matrix of time series with DCC-GARCH process \eqn{(T \times N)}}
+             If d.f is set to a finite positive real number, \eqn{\mathbf{z}_{t} \sim t_{d.f}(0, \mathbf{R}_{t})} \eqn{(T \times N)}}
+    \item{dcc}{a matrix of the simulated dynamic conditional correlations \eqn{(T \times N^2)}}
+    \item{h}{a matrix of the simulated conditional variances \eqn{(T \times N)}}
+    \item{eps}{a matrix of the simulated time series with DCC-GARCH process \eqn{(T \times N)}}
 
 }
 
 \note{
-    When "d.f=Inf", the innovations (the standardised residuals) follow the standard 
+    When \code{d.f=Inf}, the innovations (the standardised residuals) follow the standard 
     normal distribution. Otherwise, they follow a student's \eqn{t}-distribution with 
-    "d.f" degrees of freedom.
+    \code{d.f} degrees of freedom.
 
-    When model="diagonal", only the diagonal entries in A and B are used. If the 
+    When \code{model="diagonal"}, only the diagonal entries in A and B are used. If the 
     ARCH and GARCH matrices do not satisfy the stationarity condition, the simulation is 
     terminated.
 }
@@ -54,7 +54,7 @@ The dimension (\eqn{N}) is determined by the number of elements in the \eqn{a} v
   \dQuote{Theoretical and Empirical Properties of Dynamic
   Conditional Correlation Multivariate GARCH.}
   \emph{Stern Finance Working Paper Series}
-  {FIN}-01-027 (Revised in Dec. 2001),
+  FIN-01-027 (Revised in Dec. 2001),
   New York University Stern School of Business.
   
   Engle, R.F. (2002),
@@ -62,7 +62,7 @@ The dimension (\eqn{N}) is determined by the number of elements in the \eqn{a} v
   Multivariate Generalized Autoregressive Conditional
   Heteroskedasticity Models.}
   \emph{Journal of Business and Economic Statistics}
-  \bold{20}, 339-350.
+  \bold{20}, 339--350.
 }
 
 \seealso{
@@ -84,7 +84,8 @@ dcc.para <- c(0.01,0.98)
 dcc.data <- dcc.sim(nobs, a, A, B, uncR, dcc.para, model="diagonal")
 
 # for t distributed innovations
-dcc.data.t <- dcc.sim(nobs, a, A, B, uncR, dcc.para, d.f=nu, model="diagonal")
+dcc.data.t <- dcc.sim(nobs, a, A, B, uncR, dcc.para, d.f=nu,
+model="diagonal")
 
 }
 

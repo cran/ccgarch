@@ -1,6 +1,6 @@
 #*****************************************************************************************************************
 # esitimating an (E)CCC-GARCH(1,1) model
-      eccc.estimation <- function(a, A, B, R, dvar, model){
+      eccc.estimation <- function(a, A, B, R, dvar, model, method="BFGS"){
          dvar <- as.matrix(dvar)
          nobs <- dim(dvar)[1]
          ndim <- dim(dvar)[2]
@@ -12,7 +12,7 @@
          } else {
           init <- c(sqrt(a), as.vector(sqrt(A)), as.vector(sqrt(B)), R[lower.tri(R)])
          }
-         results <- optim(par=init, fn=loglik.eccc, method="BFGS", dvar=dvar, model=model, control=list(maxit=10^5, reltol=1e-15))
+         results <- optim(par=init, fn=loglik.eccc, method=method, dvar=dvar, model=model, control=list(maxit=10^5, reltol=1e-15))
       
          if(results$convergence != 0){
             cat("***********************************************************\n")
@@ -69,6 +69,6 @@
          colnames(std.error) <- c(name.a, name.A, name.B, name.R)
          para.estimates <- c(esta, vecA, vecB, vecR)
          
-      list(out=rbind(para.estimates, std.error), h=h, opt=results, para.mat=estimates)
+      list(out=rbind(para.estimates, std.error), h=h, std.resid=std.resid, opt=results, para.mat=estimates)
       }
 

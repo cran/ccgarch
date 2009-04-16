@@ -1,9 +1,9 @@
 \name{loglik.dcc1}
 \alias{loglik.dcc1}
-\title{ The 1st stage Log-likelihood function for the (E)DCC GARCH  }
+\title{ The 1st stage log-likelihood function for the (E)DCC GARCH  }
 
 \description{
-This function returns a log-likelihood of the (E)DCC-GARCH in the first stage estimation.
+This function returns a log-likelihood of the (E)DCC-GARCH model in the first stage estimation.
 }
 
 \usage{
@@ -13,8 +13,8 @@ This function returns a log-likelihood of the (E)DCC-GARCH in the first stage es
 \arguments{
   \item{param}{a vector of the parameters \eqn{(npar \times 1)} }
   \item{dvar}{a matrix of the observed residuals \eqn{(T \times N)}}
-  \item{model}{a character string describing the model. "diagonal" for the diagonal model 
-               and "extended" for the extended (full ARCH and GARCH parameter matrices) model}
+  \item{model}{a character string describing the model. \code{"diagonal"} for the diagonal model 
+               and \code{"extended"} for the extended (full ARCH and GARCH parameter matrices) model}
 }
 
 \value{
@@ -31,7 +31,7 @@ This function returns a log-likelihood of the (E)DCC-GARCH in the first stage es
   \dQuote{Theoretical and Empirical Properties of Dynamic
   Conditional Correlation Multivariate GARCH.}
   \emph{Stern Finance Working Paper Series}
-  {FIN}-01-027 (Revised in Dec. 2001),
+  FIN-01-027 (Revised in Dec. 2001),
   New York University Stern School of Business.
   
   Engle, R.F. (2002),

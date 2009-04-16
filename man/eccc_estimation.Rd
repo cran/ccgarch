@@ -8,17 +8,19 @@ various diagnostic statistics.
 }
 
 \usage{
-      eccc.estimation(a, A, B, R, dvar, model)
+      eccc.estimation(a, A, B, R, dvar, model, method="BFGS")
 }
 
 \arguments{
     \item{a}{a vector of constants \eqn{(N \times 1)}}
     \item{A}{an ARCH parameter matrix \eqn{(N \times N)}}
     \item{B}{a GARCH parameter matrix \eqn{(N \times N)}}
-    \item{R}{a CCC matrix \eqn{(N \times N)}}
+    \item{R}{a constant conditional correlation matrix \eqn{(N \times N)}}
     \item{dvar}{a matrix of data \eqn{(T \times N)}}
-    \item{model}{a character string describing the model. "diagonal" for the diagonal model 
-               and "extended" for the extended (full ARCH and GARCH parameter matrices) model}
+    \item{model}{a character string describing the model. \code{"diagonal"} for the diagonal model 
+               and \code{"extended"} for the extended (full ARCH and GARCH parameter matrices) model}
+    \item{method}{a character string specifying the optimisation method in \code{optim}. 
+               There are three choices, namely, \code{Nelder-Mead}, \code{BFGS} (default) and \code{CG}.}
 }
 
 \value{
@@ -26,17 +28,28 @@ various diagnostic statistics.
     \item{out}{a \eqn{(4 \times npar)} matrix. The estimates are contained in the first row. 
                The remaining rows report standard errors based on three different methods of 
                estimating the asymptotic covariance matrix}
-    \item{h}{the estimated volatility \eqn{(T \times N)}}
+    \item{h}{the estimated conditional variances \eqn{(T \times N)}}
+    \item{std.resid}{a matrix of the standardised residuals \eqn{(T \times N}). See \emph{Note}.}
     \item{opt}{the detailed results of the optimisation}
     \item{para.mat}{vectorised parameter estimates}
 }
 
-\references{
-  Nakatani, T. and T. er\"{a}svirta (2008),
-  \dQuote{Testing for Volatility Interactions in the Constant Conditional Correlation GARCH Model},
-  \emph{Econometrics Journal}, forthcoming.
+\note{
+    The standardised residuals are calculated through dividing the
+    original series by the estimated conditional standard deviations.
+    See, for instance, p.303 of Bollerslev (1990) for details.
+}
 
-  Nakatani, T. and T. Ter\"{a}svirta (2008),
+
+\references{
+  Bollerslev, T. (1990), \dQuote{Modelling the Coherence in Short-run Nominal Exchange Rates: A Multivariate Generalized ARCH Model}, 
+  \emph{Review of Economics and Statistics}, \bold{20}, 498--505.
+  
+  Nakatani, T. and T. Ter\"asvirta (2009),
+  \dQuote{Testing for Volatility Interactions in the Constant Conditional Correlation GARCH Model},
+  \emph{Econometrics Journal}, \bold{12}, 147--163.
+
+  Nakatani, T. and T. Ter\"asvirta (2008),
   \dQuote{Appendix to \emph{Testing for Volatility Interactions in the Constant Conditional Correlation GARCH Model}}
   Department of Economic Statistics, Stockholm School of Economics, 
   available at \url{http://swopec.hhs.se/hastef/abs/hastef0649.htm}.

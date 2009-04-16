@@ -23,12 +23,12 @@
 
 \note{
     The function is used only from \code{\link{dcc.estimation2}} when the switch variable 
-    "gradient!=0". \code{dlc$dlc} in \code{\link{dlc}} contains the analytical gradient of 
+    \code{gradient!=0}. \code{dlc$dlc} in \code{\link{dlc}} contains the analytical gradient of 
     the second stage log-likelihood function. 
 }
 
 \seealso{
-    \code{\link{dlc}}
+    \code{\link{dlc}}, 
     \code{\link{dcc.estimation}}
 }
 

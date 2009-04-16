@@ -1,9 +1,9 @@
 \name{loglik.dcc2}
 \alias{loglik.dcc2}
-\title{ The 2nd stage Log-likelihood function for the (E)DCC GARCH  }
+\title{ The 2nd stage log-likelihood function for the (E)DCC GARCH  }
 
 \description{
-This function returns a log-likelihood of the (E)DCC-GARCH in the 2nd step estimation.
+This function returns a log-likelihood of the (E)DCC-GARCH model in the 2nd step estimation.
 }
 
 \usage{
@@ -28,7 +28,7 @@ This function returns a log-likelihood of the (E)DCC-GARCH in the 2nd step estim
   \dQuote{Theoretical and Empirical Properties of Dynamic
   Conditional Correlation Multivariate GARCH.}
   \emph{Stern Finance Working Paper Series}
-  {FIN}-01-027 (Revised in Dec. 2001),
+  FIN-01-027 (Revised in Dec. 2001),
   New York University Stern School of Business.
   
   Engle, R.F. (2002),
@@ -36,7 +36,7 @@ This function returns a log-likelihood of the (E)DCC-GARCH in the 2nd step estim
   Multivariate GeneralizSed Autoregressive Conditional
   Heteroskedasticity Models.}
   \emph{Journal of Business and Economic Statistics}
-  \bold{20}, 339-350.
+  \bold{20}, 339--350.
 }
 
 \seealso{

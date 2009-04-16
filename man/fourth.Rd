@@ -21,15 +21,15 @@ in the (E)CCC-GARCH models.
 }
 
 \references{
-   He, C. and T. Ter\"{a}svirta (2004):
+   He, C. and T. Ter\"asvirta (2004):
    \dQuote{An Extended Constant Conditional Correlation GARCH model and its Fourth-moment Structure}, 
    \emph{Econometric Theory}, \bold{20}, 904--926.
 
-  Nakatani, T. and T. er\"{a}svirta (2008),
+  Nakatani, T. and T. Ter\"asvirta (2009),
   \dQuote{Testing for Volatility Interactions in the Constant Conditional Correlation GARCH Model},
-  \emph{Econometrics Journal}, forthcoming.
+  \emph{Econometrics Journal}, \bold{12}, 147--163.
 
-  Nakatani, T. and T. Ter\"{a}svirta (2008),
+  Nakatani, T. and T. Ter\"asvirta (2008),
   \dQuote{Appendix to \emph{Testing for Volatility Interactions in the Constant Conditional Correlation GARCH Model}}
   Department of Economic Statistics, Stockholm School of Economics, 
   available at \url{http://swopec.hhs.se/hastef/abs/hastef0649.htm}.

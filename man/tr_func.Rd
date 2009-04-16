@@ -25,14 +25,14 @@
 
 
 \references{
-  Ter\"{a}svirta, T. (1994):
+  Ter\"asvirta, T. (1994):
   \dQuote{Specification, Estimation, and Evaluation of Smooth Transition Autoregressive Models},
   \emph{Journal of the American Statistical Association},
   \bold{89}, 208--218.
 }
 
 \seealso{
-    code{\link{stcc.sim}}
+    \code{\link{stcc.sim}}
 }
 
 \keyword{ts}

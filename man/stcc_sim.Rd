@@ -4,9 +4,9 @@
 
 \description{
 This function simulates data either from the original STCC-GARCH by Silvennoinen and 
-Ter\"{a}svirta (2005) or from the Extended STCC-GARCH that has non-zero off-diagonal 
+Ter\"asvirta (2005) or from the Extended STCC-GARCH that has non-zero off-diagonal 
 entries in the parameter matrices in the GARCH equation, with multivariate normal or 
-student's \eqn{t} distributions. 
+student's \eqn{t} distribution. 
 
 The dimension \eqn{(N)} is determined by the number of elements in the \eqn{\mathbf{a}} vector. 
 }
@@ -18,40 +18,40 @@ The dimension \eqn{(N)} is determined by the number of elements in the \eqn{\mat
 
 \arguments{
     \item{nobs}{a number of observations to be simulated \eqn{(T)}}
-    \item{a}{a vector of constants in the GARCH equation \eqn{(N \times 1)}}
-    \item{A}{an ARCH parameter matrix in the GARCH equation. \eqn{(N \times N)}}
-    \item{B}{a GARCH parameter matrix in the GARCH equation. \eqn{(N \times N)}}
+    \item{a}{a vector of constants in the vector GARCH equation \eqn{(N \times 1)}}
+    \item{A}{an ARCH parameter matrix in the vector GARCH equation. \eqn{(N \times N)}}
+    \item{B}{a GARCH parameter matrix in the vector GARCH equation. \eqn{(N \times N)}}
     \item{R1}{a conditional correlation matrix in regime 1 \eqn{(N \times N)}}
     \item{R2}{a conditional correlation matrix in regime 2 \eqn{(N \times N)}}
-    \item{tr.par}{a vector of Scale and location parameters in the transition function \eqn{(2 \times 1)}}
+    \item{tr.par}{a vector of scale and location parameters in the transition function \eqn{(2 \times 1)}}
     \item{st.par}{a vector of parameters for the GARCH(1,1) transition variable \eqn{(3 \times 1)}}
     \item{d.f}{the degrees of freedom parameter for the \eqn{t}-distribution}
     \item{cut}{the number of observations to be thrown away for removing initial effects of simulation}
-    \item{model}{a character string describing the model. "diagonal" for the diagonal model 
-               and "extended" for the extended (full ARCH and GARCH parameter matrices) model}
+    \item{model}{a character string describing the model. \code{"diagonal"} for the diagonal model 
+               and \code{"extended"} for the extended (full ARCH and GARCH parameter matrices) model}
 }
 
 \value{
     A list with components:
-    \item{h}{a \eqn{(T \times N)} matrix of conditional variances}
-    \item{eps}{a \eqn{(T \times N)} matrix of time series with DCC-GARCH process}
-    \item{tr.var}{a vector of length \eqn{T} of the transition variable}
+    \item{h}{a matrix of conditional variances \eqn{(T \times N)}}
+    \item{eps}{a matrix of time series with DCC-GARCH process \eqn{(T \times N)}}
+    \item{tr.var}{a vector of the transition variable}
     \item{st}{a vector of time series of the transition function}
     \item{vecR}{a \eqn{(T \times N^{2})} matrix of Smooth Transition Conditional Correlations}
 }
 
 \note{
-    When "d.f=Inf", the innovations (the standardised residuals) follow the standard 
+    When \code{d.f=Inf}, the innovations (the standardised residuals) follow the standard 
     normal distribution. Otherwise, they follow a student's \eqn{t}-distribution with 
-    "d.f" degrees of freedom equal.
+    \code{d.f} degrees of freedom equal.
     
-    When model="diagonal", only the diagonal entries in A and B are used. If the 
+    When \code{model="diagonal"}, only the diagonal entries in \eqn{\mathbf{A}} and \eqn{\mathbf{B}} are used. If the 
     ARCH and GARCH matrices do not satisfy the stationarity condition, the simulation is 
     terminated.
 }
 
 \references{
-  Silvennoinen, A. and T. Ter\"{a}svirta (2005),
+  Silvennoinen, A. and T. Ter\"asvirta (2005),
   \dQuote{Multivariate Autoregressive Conditional Heteroskedasticity with 
           Smooth Transitions in Conditional Correlations.}
   \emph{SSE/EFI Working Paper Series in Economics and Finance} No. 577, 

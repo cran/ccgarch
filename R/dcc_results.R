@@ -31,7 +31,7 @@ dcc.results <- function(u, garch.para, dcc.para, h, model){
 
       G. <- cbind(rbind(G11, G21), rbind(matrix(0, nrow=dim(G11)[1], ncol=2),G22))
       O. <- cbind(rbind(O11, t(O12)), rbind(O12, O22))
-      invG. <- solve(G.)
+      invG. <- solve(G., tol=1e-50)
       V <- invG.%*%O.%*%invG./nobs                                      # covariance matrix
       se <- sqrt(diag(V))
 
