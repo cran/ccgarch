@@ -1,6 +1,7 @@
 # a robust skewness measure described in Kim and White (2004)
 rob.sk <- function(x){
   if(!is.vector(x)){
+     x <- as.matrix(x)
      nobs <- dim(x)[1]; ndim <- dim(x)[2]; m <- colMeans(x)
      sk1 <- numeric(ndim)
      sk2 <- numeric(ndim)
@@ -14,6 +15,7 @@ rob.sk <- function(x){
          sk2[i] <- (quant[3]+quant[1]-2*quant[2])/(quant[3]-quant[1])
      }
   } else {
+         x <- as.vector(x)
          nobs <- length(x); m <- mean(x); ndim <- 1
       # standard skewness
          x. <- x-m; v <- mean(x.^2)

@@ -35,7 +35,9 @@ method="BFGS", gradient=1, message=1)
 \value{
     a list with components:
     \item{out}{the parameter estimates and their standard errors}
-    \item{h}{a matrix of the estimated conditional variances \eqn{(T \times N)}}
+    \item{loglik}{the value of the log-likelihood at the estimates}
+    \item{h}{a matrix of the estimated conditional variances \eqn{(T
+	\times N)}}
     \item{DCC}{a matrix of the estimated dynamic conditional correlations \eqn{(T \times N^{2})}}
     \item{std.resid}{a matrix of the standardised residuals \eqn{(T \times N}). See \emph{Note}.}
     \item{first}{the results of the first stage estimation}

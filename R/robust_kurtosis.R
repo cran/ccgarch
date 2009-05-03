@@ -1,6 +1,7 @@
 # a robust excess kurtosis measure described in Kim and White (2004)
 rob.kr <- function(x){
   if(!is.vector(x)){
+     x <- as.matrix(x)
      nobs <- dim(x)[1]; ndim <- dim(x)[2]
      m <- colMeans(x)
      kr1 <- numeric(ndim)
@@ -13,6 +14,7 @@ rob.kr <- function(x){
         kr2[i] <- (quant[7]-quant[5]+quant[3]-quant[1])/(quant[6]-quant[2])-1.23
      }
   } else {
+     x <- as.vector(x)
      nobs <- length(x); m <- mean(x); ndim <- 1
      x. <- x-m; v <- mean(x.^2)
      std.x <- x./sqrt(v)
