@@ -15,10 +15,10 @@
          # first stage optimisation
          first.stage <- dcc.estimation1(dvar=dvar, a=inia, A=iniA, B=iniB, model=model, method=method)
          if(first.stage$convergence != 0){
-            cat("********************************************\n")
-            cat("* The first stage optimization is failed.  *\n")
-            cat("* See a list variable 'second' for details. *\n")
-            cat("********************************************\n")
+            cat("***********************************************\n")
+            cat("* The first stage optimization has failed.    *\n")
+            cat("* See the list variable 'second' for details. *\n")
+            cat("***********************************************\n")
          }
          tmp.para <- c(first.stage$par, In[lower.tri(In)])
          estimates <- p.mat(tmp.para, model=model, ndim=ndim)
@@ -33,10 +33,10 @@
          second.stage <- dcc.estimation2(std.resid, ini.dcc, gradient=gradient)
          
          if(second.stage$convergence != 0){
-            cat("*********************************************\n")
-            cat("* The second stage optimization is failed.  *\n")
-            cat("* See a list variable 'second' for details. *\n")
-            cat("*********************************************\n")
+            cat("***********************************************\n")
+            cat("* The second stage optimization has failed.   *\n")
+            cat("* See the list variable 'second' for details. *\n")
+            cat("***********************************************\n")
          } else if(message != 0) {
             cat("***********************************************************\n")
             cat("*  Estimation has been completed.                         *\n")

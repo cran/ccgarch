@@ -1,15 +1,20 @@
-citHeader("To cite package `ccgarch' in publications use:")
+citHeader("To cite package ccgarch in publications use:")
 
-desc <- packageDescription("ccgarch")
-year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", desc$Date)
-vers <- paste("R package version", desc$Version, ". The paper is available from the package maintainer <naktom2@gmail.com>.")
+if(!exists("meta") || is.null(meta)) meta <- packageDescription("ccgarch")
+
+year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date)
+vers <- paste("R package version ", meta$Version, ", URL <http://CRAN.r-project/package=ccgarch>.", sep="")
 
 citEntry(
- entry="Manual",
- title= "ccgarch: An R Package for Modelling Multivariate GARCH Models with
+ entry ="Manual",
+ title = "ccgarch: An R Package for Modelling Multivariate GARCH Models with
          Conditional Correlations",
  author = personList(as.person("Tomoaki Nakatani")),
  year = year,
  note = vers,
- textVersion=" "
+ textVersion =
+         paste("Tomoaki Nakatani (",
+               year,
+               "). ccgarch: An R Package for Modelling Multivariate GARCH Models with Conditional Correlations, ",
+               vers, sep="")
 )
