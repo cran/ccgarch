@@ -25,7 +25,8 @@ loglik.dcc <- function (param, dvar, model) {
    for( i in 1:nobs){                        
       R <- matrix(DCC[i,], ndim, ndim)
       invR <- solve(R)
-      lf2[i] <- -0.5*(log(det(R)) +sum(z[i,]*crossprod(invR,z[i,])))
+      tmpz <- as.vector(z[i,])
+      lf2[i] <- -0.5*(log(det(R)) +sum(tmpz*crossprod(invR, tmpz)))
    }
-    lf1 + lf2
+    sum(lf1 + lf2)
 }

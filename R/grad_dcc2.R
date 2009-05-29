@@ -4,9 +4,12 @@ grad.dcc2 <- function(param, dvar, d=1e-5){
    ndim <- dim(dvar)[2]
    npara <- length(param)
    Id <- d*diag(npara)
-   for(i in 1:npara){
-      assign(paste("param", i, sep=""), param+Id[,i])
-   }
+   param1 <- param + Id[,1]
+   param2 <- param + Id[,2]
+
+#   for(i in 1:npara){
+#      assign(paste("param", i, sep=""), param+Id[,i])
+#   }
    DCC <- dcc.est(dvar, param)$DCC
    DCC1 <- dcc.est(dvar, param1)$DCC
    DCC2 <- dcc.est(dvar, param2)$DCC

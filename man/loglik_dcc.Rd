@@ -22,7 +22,7 @@ This function returns a log-likelihood of the (E)DCC-GARCH model.
 }
 
 \note{
-    this function is used in \code{\link{grad.dcc.full}}.
+    \code{param} must be made by stacking all the parameter matrices.
 }
 
 \references{
@@ -40,6 +40,29 @@ This function returns a log-likelihood of the (E)DCC-GARCH model.
   \emph{Journal of Business and Economic Statistics}
   \bold{20}, 339--350.
 }
+
+
+\examples{
+# Simulating data from the original DCC-GARCH(1,1) process
+  nobs <- 1000; cut <- 1000
+  a <- c(0.003, 0.005, 0.001)
+  A <- diag(c(0.2,0.3,0.15))
+  B <- diag(c(0.75, 0.6, 0.8))
+  uncR <- matrix(c(1.0, 0.4, 0.3, 0.4, 1.0, 0.12, 0.3, 0.12, 1.0),3,3)
+  dcc.para <- c(0.01,0.98)
+  dcc.data <- dcc.sim(nobs, a, A, B, uncR, dcc.para, model="diagonal")
+
+# Estimating a DCC-GARCH(1,1) model
+  dcc.results <- dcc.estimation(inia=a, iniA=A, iniB=B, ini.dcc=dcc.para, dvar=dcc.data$eps,
+  model="diagonal")
+
+# Parameter estimates and their robust standard errors
+  dcc.results$out
+
+# Computing the value of the log-likelihood at the estimates
+  loglik.dcc(dcc.results$out[1,], dcc.data$eps, model="diagonal")
+}
+
 
 \keyword{ts},
 \keyword{models},
