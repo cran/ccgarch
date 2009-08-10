@@ -3,7 +3,7 @@
 \title{ The log-likelihood function for the (E)DCC GARCH model  }
 
 \description{
-This function returns a log-likelihood of the (E)DCC-GARCH model.
+    This function returns a log-likelihood of the (E)DCC-GARCH model.
 }
 
 \usage{
@@ -29,7 +29,7 @@ This function returns a log-likelihood of the (E)DCC-GARCH model.
   Robert F. Engle and Kevin Sheppard (2001),
   \dQuote{Theoretical and Empirical Properties of Dynamic
   Conditional Correlation Multivariate GARCH.}
-  \emph{{\it Stern Finance Working Paper Series}}
+  \emph{Stern Finance Working Paper Series}
   FIN-01-027 (Revised in Dec. 2001),
   New York University Stern School of Business.
   
@@ -53,8 +53,8 @@ This function returns a log-likelihood of the (E)DCC-GARCH model.
   dcc.data <- dcc.sim(nobs, a, A, B, uncR, dcc.para, model="diagonal")
 
 # Estimating a DCC-GARCH(1,1) model
-  dcc.results <- dcc.estimation(inia=a, iniA=A, iniB=B, ini.dcc=dcc.para, dvar=dcc.data$eps,
-  model="diagonal")
+  dcc.results <- dcc.estimation(inia=a, iniA=A, iniB=B, ini.dcc=dcc.para, 
+    dvar=dcc.data$eps, model="diagonal")
 
 # Parameter estimates and their robust standard errors
   dcc.results$out
@@ -64,7 +64,7 @@ This function returns a log-likelihood of the (E)DCC-GARCH model.
 }
 
 
-\keyword{ts},
-\keyword{models},
+\keyword{ts}
+\keyword{models}
 \keyword{multivariate}
 

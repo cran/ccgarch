@@ -3,7 +3,7 @@
 \title{ Computing standard and robustified excess kurtosis }
 
 \description{
-This function computes standard and robustified excess kurtosis of a vector or matrix of variables.
+    This function computes standard and robustified excess kurtosis of a vector or matrix of variables.
 }
 
 \usage{
@@ -35,5 +35,5 @@ x <- matrix(rnorm(1000), 100, 10)
 rob.kr(x)
 }
 
-\keyword{htest},
+\keyword{htest}
 \keyword{ts}

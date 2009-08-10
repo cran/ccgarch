@@ -2,9 +2,8 @@
 \alias{dcc.estimation1}
 \title{ Maximising the first stage log-likelihood function of the (E)DCC-GARCH model}
 \description{
-This function carries out the first stage (volatility part) estimation of the (E)DCC-GARCH model.
+    This function carries out the first stage (volatility part) estimation of the (E)DCC-GARCH model.
 }
-
 \usage{
     dcc.estimation1(dvar, a, A, B, model, method="BFGS")
 }
@@ -19,11 +18,9 @@ This function carries out the first stage (volatility part) estimation of the (E
     \item{method}{a character string specifying the optimisation method in \code{optim}. 
                There are three choices, namely, \code{"Nelder-Mead"}, \code{"BFGS"} (default) and \code{"CG"}.}
 }
-
 \value{
     a list of the estimation results. See the explanations in \code{optim}.
 }
-
 \references{
   Engle, R.F. and K. Sheppard (2001),
   \dQuote{Theoretical and Empirical Properties of Dynamic
@@ -39,16 +36,11 @@ This function carries out the first stage (volatility part) estimation of the (E
   \emph{Journal of Business and Economic Statistics}
   \bold{20}, 339--350.
 }
-
 \seealso{
     \code{optim}, 
     \code{\link{dcc.estimation2}}, 
     \code{\link{dcc.estimation}}
 }
-
-
-\keyword{ts},
-\keyword{multivariate},
+\keyword{ts}
+\keyword{multivariate}
 \keyword{optimize}
-
-

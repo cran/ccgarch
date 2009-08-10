@@ -2,8 +2,7 @@
 \alias{dcc.results}
 \title{Computing robust standard errors of the estimates in the (E)DCC-GARCH model }
 \description{
-
-This function computes the robust standard errors of the estimates of a DCC-GARCH model.
+    This function computes the robust standard errors of the estimates of a DCC-GARCH model.
 }
 \usage{
 
@@ -47,7 +46,7 @@ This function computes the robust standard errors of the estimates of a DCC-GARC
     \code{\link{dcc.estimation}}
 }
 
-\keyword{ts},
-\keyword{models},
+\keyword{ts}
+\keyword{models}
 \keyword{multivariate}
 

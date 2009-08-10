@@ -3,8 +3,8 @@
 \title{ Computing partial derivatives of the CCC matrix }
 
 \description{
-This function computes partial derivatives of the CCC 
-matrix with respect to its correlation coefficients.
+    This function computes partial derivatives of the CCC 
+    matrix with respect to its correlation coefficients.
 }
 
 \usage{
@@ -30,6 +30,6 @@ matrix with respect to its correlation coefficients.
   available at \url{http://swopec.hhs.se/hastef/abs/hastef0649.htm}.
 }
 
-\keyword{ts},
-\keyword{models},
+\keyword{ts}
+\keyword{models}
 \keyword{multivariate}

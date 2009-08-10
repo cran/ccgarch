@@ -32,8 +32,8 @@
     \code{\link{dcc.estimation}}
 }
 
-\keyword{ts},
-\keyword{models},
+\keyword{ts}
+\keyword{models}
 \keyword{multivariate}
 
 

@@ -3,8 +3,8 @@
 \title{ Computing partial derivatives of a vector GARCH(1, 1) equation}
 
 \description{
-This function computes partial derivatives of a vector GARCH(1, 1) equation with respect to 
-its parameters.
+    This function computes partial derivatives of a vector GARCH(1, 1) equation with respect to 
+    its parameters.
 }
 
 \usage{
@@ -32,8 +32,8 @@ its parameters.
   available at \url{http://swopec.hhs.se/hastef/abs/hastef0649.htm}.
 }
 
-\keyword{ts},
-\keyword{models},
+\keyword{ts}
+\keyword{models}
 \keyword{multivariate}
 
 

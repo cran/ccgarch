@@ -2,9 +2,7 @@
 \alias{dcc.est}
 \title{Dynamic conditional correlations }
 \description{
-
-This function returns dynamic conditional correlations based on the parameters specified.
-
+    This function returns dynamic conditional correlations based on the parameters specified.
 }
 \usage{
 
@@ -41,7 +39,7 @@ This function returns dynamic conditional correlations based on the parameters s
   \bold{20}, 339--350.
 }
 
-\keyword{ts},
-\keyword{models},
+\keyword{ts}
+\keyword{models}
 \keyword{multivariate}
 

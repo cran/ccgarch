@@ -3,7 +3,7 @@
 \title{ Computing standard and robustified skewness }
 
 \description{
-This function computes standard and robustified skewness measures of a vector or matrix of variables.
+    This function computes standard and robustified skewness measures of a vector or matrix of variables.
 }
 
 \usage{
@@ -34,5 +34,5 @@ x <- matrix(rnorm(1000), 100, 10)
 rob.sk(x)
 }
 
-\keyword{htest},
+\keyword{htest}
 \keyword{ts}

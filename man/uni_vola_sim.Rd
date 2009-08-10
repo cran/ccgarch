@@ -2,10 +2,8 @@
 \alias{uni.vola.sim}
 \title{ Simulating a series with univariate GARCH(1,1) conditional variances}
 \description{
-
-This function simulates an univariate time series with GARCH(1,1)
-conditional variances.
-
+    This function simulates an univariate time series with GARCH(1,1)
+    conditional variances.
 }
 
 \usage{
@@ -61,6 +59,6 @@ eps <- uni.vola.sim(a, nobs)
 eps.t <- uni.vola.sim(a, nobs, d.f = df)
 }
 
-\keyword{ts},
-\keyword{datagen},
+\keyword{ts}
+\keyword{datagen}
 \keyword{models}

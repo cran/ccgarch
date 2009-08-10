@@ -2,18 +2,17 @@
 \alias{dcc.estimation}
 \title{ Estimating (E)DCC-GARCH model }
 \description{
-
-This function carries out the two step estimation of the (E)DCC-GARCH model and returns 
-estimates, standardised residuals, the estimated conditional variances, and the dynamic conditional 
-correlations.
-
+    This function carries out the two step estimation of the (E)DCC-GARCH model and returns 
+    estimates, standardised residuals, the estimated conditional variances, and the dynamic conditional 
+    correlations.
 }
 \usage{
     dcc.estimation(inia, iniA, iniB, ini.dcc, dvar, model,
 method="BFGS", gradient=1, message=1)
 }
 \arguments{
-    \item{inia}{a vector of initial values for the constants in the GARCH equation \code{length(inia)=N}}
+    \item{inia}{a vector of initial values for the constants in the GARCH equation 
+            \code{length(inia)=N}}
     \item{iniA}{a matrix of initial values for the ARCH parameter matrix
       \eqn{(N \times N)}}
     \item{iniB}{a matrix of initial values for the GARCH parameter
@@ -97,16 +96,16 @@ method="BFGS", gradient=1, message=1)
   dcc.data <- dcc.sim(nobs, a, A, B, uncR, dcc.para, model="diagonal")
 
 # Estimating a DCC-GARCH(1,1) model
-  dcc.results <- dcc.estimation(inia=a, iniA=A, iniB=B, ini.dcc=dcc.para, dvar=dcc.data$eps,
-  model="diagonal")
+  dcc.results <- dcc.estimation(inia=a, iniA=A, iniB=B, ini.dcc=dcc.para, 
+        dvar=dcc.data$eps, model="diagonal")
 
 # Parameter estimates and their robust standard errors
   dcc.results$out
 
 }
 
-\keyword{ts},
-\keyword{multivariate},
+\keyword{ts}
+\keyword{multivariate}
 \keyword{optimize}
 
 

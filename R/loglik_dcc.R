@@ -20,7 +20,8 @@ loglik.dcc <- function (param, dvar, model) {
     z <- dvar/sqrt(h)
     DCC <- dcc.est(z, dcc.param)$DCC
     
-    lf1 <- -0.5*ndim*log(2*pi) - rowSums(log(h)) -0.5*rowSums(z^2)
+#    lf1 <- -0.5*ndim*log(2*pi) - rowSums(log(h)) -0.5*rowSums(z^2)
+    lf1 <- -0.5*ndim*log(2*pi) - rowSums(log(h))         # bug fixed on 23072009
     lf2 <- numeric(nobs)
    for( i in 1:nobs){                        
       R <- matrix(DCC[i,], ndim, ndim)

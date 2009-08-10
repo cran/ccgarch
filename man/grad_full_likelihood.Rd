@@ -3,8 +3,8 @@
 \title{ Numerical gradient of the full log-likelihood function of the (E)DCC-GARCH model }
 
 \description{
-This function computes numerical gradient of the full log-likelihood 
-function of the (E)DCC-GARCH(1,1) model with respect to its parameters.
+    This function computes numerical gradient of the full log-likelihood 
+    function of the (E)DCC-GARCH(1,1) model with respect to its parameters.
 }
 
 \usage{
@@ -30,8 +30,8 @@ function of the (E)DCC-GARCH(1,1) model with respect to its parameters.
     this function is currently not in use.
 }
 
-\keyword{ts},
-\keyword{models},
+\keyword{ts}
+\keyword{models}
 \keyword{multivariate}
 
 

@@ -2,10 +2,8 @@
 \alias{dlc}
 \title{Various partial derivatives of the DCC part of the log-likelihood function }
 \description{
-
-This function computes various analytical derivatives of the second stage log-likelihood 
-function (the DCC part) of the (E)DCC-GARCH model. 
-
+    This function computes various analytical derivatives of the second stage log-likelihood 
+    function (the DCC part) of the (E)DCC-GARCH model. 
 }
 \usage{
 
@@ -52,7 +50,7 @@ function (the DCC part) of the (E)DCC-GARCH model.
     \bold{67}, 219--239.
 }
 
-\keyword{ts},
-\keyword{models},
+\keyword{ts}
+\keyword{models}
 \keyword{multivariate}
 

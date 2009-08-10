@@ -3,7 +3,7 @@
 \title{ Logistic transition function }
 
 \description{
-    computes values from a Logistic transition function.
+    This function computes values from a Logistic transition function.
 }
 
 \usage{

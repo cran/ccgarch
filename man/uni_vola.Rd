@@ -3,7 +3,7 @@
 \title{ Computing univariate GARCH(1,1) conditional variances }
 
 \description{
-This function returns an univariate GARCH(1,1) conditional variances.
+    This function returns an univariate GARCH(1,1) conditional variances.
 }
 \usage{
    uni.vola(a,u)
@@ -35,5 +35,5 @@ u <- rnorm(1000)
 h <- uni.vola(a, u)
 }
 
-\keyword{ts},
+\keyword{ts}
 \keyword{univar}

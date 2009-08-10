@@ -3,8 +3,8 @@
 \title{ Estimating an (E)CCC-GARCH model }
 
 \description{
-This function estimates an (E)CCC-GARCH(1,1) model and returns estimates, estimated volatility and 
-various diagnostic statistics.
+    This function estimates an (E)CCC-GARCH(1,1) model and returns estimates, estimated volatility and 
+    various diagnostic statistics.
 }
 
 \usage{
@@ -55,6 +55,6 @@ various diagnostic statistics.
   available at \url{http://swopec.hhs.se/hastef/abs/hastef0649.htm}.
 }
 
-\keyword{ts},
-\keyword{models},
+\keyword{ts}
+\keyword{models}
 \keyword{multivariate}

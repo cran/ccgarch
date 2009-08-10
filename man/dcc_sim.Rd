@@ -3,9 +3,9 @@
 \title{Simulating a DCC-GARCH(1,1) process}
 
 \description{
-This function simulates data either from the original DCC-GARCH by Engle (2002) or 
-from the Extended DCC-GARCH that has non-zero off-diagonal entries in the parameter
-matrices in the GARCH equation, with multivariate normal or student's \eqn{t} distributions. 
+    This function simulates data either from the original DCC-GARCH by Engle (2002) or 
+    from the Extended DCC-GARCH that has non-zero off-diagonal entries in the parameter
+    matrices in the GARCH equation, with multivariate normal or student's \eqn{t} distributions. 
 
 The dimension (\eqn{N}) is determined by the number of elements in the \eqn{a} vector. 
 }
@@ -90,8 +90,8 @@ model="diagonal")
 }
 
 
-\keyword{ts},
-\keyword{datagen},
-\keyword{models},
+\keyword{ts}
+\keyword{datagen}
+\keyword{models}
 \keyword{multivariate}
 

@@ -2,9 +2,9 @@
 \alias{dlv}
 \title{Gradient of the GARCH part of the log-likelihood function of the DCC GARCH model }
 \description{
-This function returns the analytical partial derivatives of the volatility part of 
-the log-likelihood function of the DCC-GARCH model.
-The function is called from \code{dcc.results}.
+    This function returns the analytical partial derivatives of the volatility part of 
+    the log-likelihood function of the DCC-GARCH model.  
+    The function is called from \code{dcc.results}.
 }
 \usage{
     dlv(u, a, A, B, model)
@@ -49,7 +49,7 @@ The function is called from \code{dcc.results}.
 }
 
 
-\keyword{ts},
-\keyword{models},
+\keyword{ts}
+\keyword{models}
 \keyword{multivariate}
 

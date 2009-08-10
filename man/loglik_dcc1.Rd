@@ -3,7 +3,7 @@
 \title{ The 1st stage log-likelihood function for the (E)DCC GARCH  }
 
 \description{
-This function returns a log-likelihood of the (E)DCC-GARCH model in the first stage estimation.
+    This function returns a log-likelihood of the (E)DCC-GARCH model in the first stage estimation.
 }
 
 \usage{
@@ -48,7 +48,7 @@ This function returns a log-likelihood of the (E)DCC-GARCH model in the first st
 }
 
 
-\keyword{ts},
-\keyword{models},
+\keyword{ts}
+\keyword{models}
 \keyword{multivariate}
 

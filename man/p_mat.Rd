@@ -2,7 +2,8 @@
 \alias{p.mat}
 \title{ Re-arranging a vector into parameter matrices }
 \description{
-A utility function that re-arranges a vector of parameters into parameter matrices in the CC-GARCH(1,1) model. 
+    A utility function that re-arranges a vector of parameters into parameter 
+    matrices in the CC-GARCH(1,1) model. 
 }
 
 \usage{
@@ -33,7 +34,7 @@ A utility function that re-arranges a vector of parameters into parameter matric
   available at \url{http://swopec.hhs.se/hastef/abs/hastef0649.htm}.
 }
 
-\keyword{array},
+\keyword{array}
 \keyword{utilities}
 
 

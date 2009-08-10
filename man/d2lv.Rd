@@ -2,9 +2,7 @@
 \alias{d2lv}
 \title{Hessian of the DCC log-likelihood function}
 \description{
-
-This function returns the analytical Hessian of the volatility part of the DCC log-likelihood function.
-
+    This function returns the analytical Hessian of the volatility part of the DCC log-likelihood function.
 }
 \usage{
 
@@ -43,7 +41,7 @@ This function returns the analytical Hessian of the volatility part of the DCC l
     \bold{67}, 219--239.
 }
 
-\keyword{ts},
-\keyword{models},
+\keyword{ts}
+\keyword{models}
 \keyword{multivariate}
 

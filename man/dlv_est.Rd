@@ -2,7 +2,7 @@
 \alias{dlv.est}
 \title{Gradient of the GARCH part of the log-likelihood function of the DCC GARCH model }
 \description{
-This function returns the gradient of the volatility part of the log-likelihood function of the DCC.
+    This function returns the gradient of the volatility part of the log-likelihood function of the DCC.
 }
 
 \usage{
@@ -52,7 +52,7 @@ This function returns the gradient of the volatility part of the log-likelihood 
 }
 
 
-\keyword{ts},
-\keyword{models},
+\keyword{ts}
+\keyword{models}
 \keyword{multivariate}
 

@@ -3,7 +3,7 @@
 \title{ A vector GARCH(1,1) conditional variances }
 
 \description{
-This function computes a vector GARCH(1,1) conditional variances.
+    This function computes a vector GARCH(1,1) conditional variances.
 }
 
 \usage{
@@ -33,6 +33,6 @@ This function computes a vector GARCH(1,1) conditional variances.
 }
 
 
-\keyword{ts},
+\keyword{ts}
 \keyword{models}
 

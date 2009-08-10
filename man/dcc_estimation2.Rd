@@ -2,9 +2,7 @@
 \alias{dcc.estimation2}
 \title{ Maximising the second stage log-likelihood function of the (E)DCC-GARCH model }
 \description{
-
-This function carries out the second stage (DCC part) estimation of the (E)DCC-GARCH model.
-
+    This function carries out the second stage (DCC part) estimation of the (E)DCC-GARCH model.
 }
 \usage{
     dcc.estimation2(dvar, para, gradient=0)
@@ -47,8 +45,8 @@ This function carries out the second stage (DCC part) estimation of the (E)DCC-G
     \code{\link{dcc.estimation}}
 }
 
-\keyword{ts},
-\keyword{multivariate},
+\keyword{ts}
+\keyword{multivariate}
 \keyword{optimize}
 
 

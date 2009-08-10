@@ -38,22 +38,24 @@
             cat("* See the list variable 'second' for details. *\n")
             cat("***********************************************\n")
          } else if(message != 0) {
-            cat("***********************************************************\n")
-            cat("*  Estimation has been completed.                         *\n")
-            cat("*  The outputs are saved in a list with components:       *\n")
-            cat("*    out    : the estimates and their standard errors     *\n")
-            cat("*    h      : a matrix of estimated conditional variances *\n")
-            cat("*    DCC    : a matrix of DCC estimates                   *\n")
-            cat("*    std.resid : a matrix of the standardised residuals   *\n")
-            cat("*    first  : the results of the first stage estimation   *\n")
-            cat("*    second : the results of the second stage estimation  *\n")
-            cat("***********************************************************\n")
+            cat("****************************************************************\n")
+            cat("*  Estimation has been completed.                              *\n")
+            cat("*  The outputs are saved in a list with components:            *\n")
+            cat("*    out    : the estimates and their standard errors          *\n")
+            cat("*    loglik : the value of the log-likelihood at the estimates *\n")
+            cat("*    h      : a matrix of estimated conditional variances      *\n")
+            cat("*    DCC    : a matrix of DCC estimates                        *\n")
+            cat("*    std.resid : a matrix of the standardised residuals        *\n")
+            cat("*    first  : the results of the first stage estimation        *\n")
+            cat("*    second : the results of the second stage estimation       *\n")
+            cat("****************************************************************\n")
          }
 
          dcc <- dcc.est(std.resid, second.stage$par)$DCC
          
          # computing log likelihood at the estimates
-         lf1 <- -0.5*ndim*log(2*pi) - rowSums(log(h)) -0.5*rowSums(std.resid^2)
+#         lf1 <- -0.5*ndim*log(2*pi) - rowSums(log(h)) -0.5*rowSums(std.resid^2)
+         lf1 <- -0.5*ndim*log(2*pi) - rowSums(log(h))          # a bug fixed on 2009.07.23  
          lf2 <- numeric(nobs)
          for( i in 1:nobs){                        
             R <- matrix(dcc[i,], ndim, ndim)

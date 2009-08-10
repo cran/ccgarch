@@ -3,7 +3,7 @@
 \title{Analytical gradient of the log-likelihood function of the (E)CCC-GARCH(1,1) model}
 
 \description{
-This function returns the analytical gradient of the log-likelihood function of the (E)CCC-GARCH(1,1) model.
+    This function returns the analytical gradient of the log-likelihood function of the (E)CCC-GARCH(1,1) model.
 }
 
 \usage{
@@ -39,6 +39,6 @@ This function returns the analytical gradient of the log-likelihood function of 
 }
 
 
-\keyword{ts},
+\keyword{ts}
 \keyword{models}
 

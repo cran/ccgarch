@@ -3,10 +3,10 @@
 \title{Simulating an (E)CCC-GARCH(1,1) process}
 
 \description{
-This function simulates data either from the original CCC-GARCH by Bollerslev (1990) or
-from the Extended CCC-GARCH that has non-zero off-diagonal entries in the parameter 
-matrices in the GARCH equation. The innovations (the standardised residuals) can be 
-either a normal or student's $t$ distribution.
+    This function simulates data either from the original CCC-GARCH by Bollerslev (1990) or
+    from the Extended CCC-GARCH that has non-zero off-diagonal entries in the parameter 
+    matrices in the GARCH equation.  The innovations (the standardised residuals) can be 
+    either a normal or student's $t$ distribution.
 
 The dimension \eqn{(N)} is determined by the number of elements in the \eqn{\mathbf{a}} vector. 
 }
@@ -78,8 +78,8 @@ ccc.data   <- eccc.sim(nobs,a, A, B, R, model="diagonal")
 ccc.data.t <- eccc.sim(nobs,a, A, B, R, d.f=nu, model="diagonal")
 }
 
-\keyword{ts},
-\keyword{datagen},
-\keyword{models},
+\keyword{ts}
+\keyword{datagen}
+\keyword{models}
 \keyword{multivariate}
 

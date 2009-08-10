@@ -4,15 +4,15 @@
 #include <R_ext/Applic.h> /* for dgemm, a matrix multiplication */
 #include <R_ext/Lapack.h> /* for dpotrf, the Cholesky decomposition */
 SEXP dcc_sim(SEXP n, SEXP a0, SEXP Arch, SEXP Garch, SEXP inih, SEXP uncR, SEXP dcca, SEXP dccb, SEXP nu){       /* nobs, uncR, alpha, beta, df */
-  int i, j, k, nobs = asInteger(n), ndim = Rf_nrows(uncR), cordim = ndim*ndim, info, ione = 1;
+  int i, j, k, nobs = asInteger(n), ndim = LENGTH(a0), cordim = ndim*ndim, info, ione = 1;
   double one = 1.0, zero = 0.0, df = asReal(nu),
       *rQ, *rQbar, *rQlag, *rR, *rdiagQ, *tmprQ, *tmprR, *rDCC, *rdab, *rd_a, *rd_b,  /* for DCC equation */
       *ra, *rA, *rB, *rhini, *rel2, *rh, *rhl, *rh_row,                      /* for conditional variance equation */
-      *rz, *rz_row, *rz_tmp, *rstd_z, *reps, *reps_row, *ry;                                    /* for residuals or standardised residuals */
+      *rz, *rz_row, *rz_tmp, *rstd_z, *reps, *reps_row;                                    /* for residuals or standardised residuals */
   
   SEXP Q, Qbar, Qlag, diagQ, tmpQ, tmpR, DCC, R, dab, d_a, d_b, 
        a, A, B, hini, el2, h, hl, h_row,
-       z, z_row, z_tmp, std_z, eps, eps_row, y,
+       z, z_row, z_tmp, std_z, eps, eps_row, 
        output;
   
   PROTECT(Q = allocMatrix(REALSXP, ndim, ndim));
@@ -26,7 +26,6 @@ SEXP dcc_sim(SEXP n, SEXP a0, SEXP Arch, SEXP Garch, SEXP inih, SEXP uncR, SEXP 
   PROTECT(dab = allocVector(REALSXP, 1));
   PROTECT(d_a = duplicate(dcca));                       /*  */
   PROTECT(d_b = duplicate(dccb));                       /*  */
-  
   PROTECT(a = duplicate(a0));
   PROTECT(A = duplicate(Arch));
   PROTECT(B = duplicate(Garch));
@@ -35,14 +34,12 @@ SEXP dcc_sim(SEXP n, SEXP a0, SEXP Arch, SEXP Garch, SEXP inih, SEXP uncR, SEXP 
   PROTECT(h = allocMatrix(REALSXP, nobs, ndim));
   PROTECT(hl = allocVector(REALSXP, ndim));
   PROTECT(h_row = allocVector(REALSXP, ndim));
-
   PROTECT(z = allocMatrix(REALSXP, nobs, ndim));
   PROTECT(z_row = allocVector(REALSXP, ndim));
   PROTECT(z_tmp = allocVector(REALSXP, ndim));
   PROTECT(std_z = allocMatrix(REALSXP, nobs, ndim));
   PROTECT(eps = allocMatrix(REALSXP, nobs, ndim));
   PROTECT(eps_row = allocVector(REALSXP, ndim));
-  PROTECT(y = allocVector(REALSXP, 1));
 
   PROTECT(output = allocVector(VECSXP, 5));
   
@@ -66,7 +63,6 @@ SEXP dcc_sim(SEXP n, SEXP a0, SEXP Arch, SEXP Garch, SEXP inih, SEXP uncR, SEXP 
   rstd_z = REAL(std_z);
   reps = REAL(eps);
   reps_row = REAL(eps_row);
-  ry = REAL(y);
 
   /* volatility part */
   ra = REAL(a);
@@ -85,21 +81,17 @@ SEXP dcc_sim(SEXP n, SEXP a0, SEXP Arch, SEXP Garch, SEXP inih, SEXP uncR, SEXP 
     GetRNGstate();
       if(!R_FINITE(df)){
           for(i=0; i<(nobs*ndim); i++){
-                rz[i] = norm_rand();
+                rz[i] = rnorm(zero, one);
           }
           for(j=0; j<ndim; j++){
-              rz_tmp[j] = norm_rand();      /* initial values */
+              rz_tmp[j] = rnorm(zero, one);      /* initial values */
           }
       } else {
-          for(i=0; i<nobs; i++){
-              ry[0] = sqrt(df/rchisq(df));
-                 for(j=0; j<ndim; j++){
-                   rz[i + j*nobs] = norm_rand()*ry[0];    
-                 }
+          for(i=0; i<(nobs*ndim); i++){
+                   rz[i] = rt(df);    
           }
-          ry[0] = sqrt(df/rchisq(df));
           for(j=0; j<ndim; j++){
-              rz_tmp[j] = norm_rand()*ry[0];
+              rz_tmp[j] = rt(df);
           }
       }
     PutRNGstate();
@@ -108,12 +100,15 @@ SEXP dcc_sim(SEXP n, SEXP a0, SEXP Arch, SEXP Garch, SEXP inih, SEXP uncR, SEXP 
     for(j=0; j<cordim; j++){
       rdiagQ[j] = 0.0;
       rQbar[j] = rdab[0]*rR[j];
-      rQlag[j] = rQbar[j]; 
+      rQlag[j] = rQbar[j];
     }
+  /* copying initial value of the conditional variance */
+    F77_CALL(dcopy)(&ndim, rhini, &ione, rel2, &ione);
+    F77_CALL(dcopy)(&ndim, rhini, &ione, rhl, &ione);
+    /* F77_CALL(dcopy)(&ndim, rQbar, &ione, rQlag, &ione); */
+
   /* carry out the Cholesky decomposition of R */
    	for (k = 0; k < ndim; k++) {   
-      rel2[k] = rhini[k];               /* initial values */
-      rhl[k] = rhini[k];                /* initial values */
   	  for (j = k+1; j < ndim; j++) {
   		  rR[k + j * ndim] = 0.0;        /* setting upper right block = 0 */
   	  }
@@ -166,7 +161,8 @@ for(i=0; i<nobs; i++){
       reps[i+j*nobs] = reps_row[j];           /* saving simulated eps */
       rh[i+j*nobs] = rh_row[j];               /* saving simulated volatilities */
       rhl[j] = rh_row[j];                     /* h_{t-1}: for the next loop */
-      rel2[j] = R_pow_di(reps[i+j*nobs], 2);  /*     eps_{-1}^2: used in the next step of loop */
+      /* rel2[j] = R_pow_di(reps[i+j*nobs], 2);      eps_{-1}^2: used in the next step of loop */
+      rel2[j] = R_pow_di(reps_row[j], 2);  /*     eps_{-1}^2: used in the next step of loop */
     }
 }
 /*****************************************************************************************/
@@ -176,6 +172,6 @@ for(i=0; i<nobs; i++){
   SET_VECTOR_ELT(output, 3, h);
   SET_VECTOR_ELT(output, 4, eps);
 
-  UNPROTECT(27);
+  UNPROTECT(26);
   return(output);
 }

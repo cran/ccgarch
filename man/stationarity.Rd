@@ -5,7 +5,8 @@
 \title{ The stationarity condition in Extended CC-GARCH models  }
 
 \description{
-  A utility function that checks if the two parameter matrices in a vector GARCH model satisfy the stationarity condition. 
+    A utility function that checks if the two parameter matrices in a vector GARCH model 
+    satisfy the stationarity condition. 
 }
 \usage{ 
    stationarity(A,B)
@@ -40,5 +41,5 @@
 }
 
 
-\keyword{ts},
+\keyword{ts}
 \keyword{multivariate}

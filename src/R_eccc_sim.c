@@ -8,8 +8,8 @@ SEXP eccc_sim(SEXP n, SEXP a0, SEXP Arch, SEXP Garch, SEXP V, SEXP inih, SEXP nu
 {
   int i, j, nobs = asInteger(n), ndim = Rf_nrows(V), info, ione = 1;
   double one = 1.0, zero = 0.0, df = asReal(nu),
-         *rz, *ra, *rA, *rB,  *rR, *rhini, *rD, *reps, *reps_row, *rh_row, *rh, *rhl, *rel2, *rz_, *rz_row, *ry;
-  SEXP a, A, B, R, hini, D, eps, eps_row, z, h, hl, el2, z_, z_row, h_row, y, output;
+         *rz, *ra, *rA, *rB,  *rR, *rhini, *rD, *reps, *reps_row, *rh_row, *rh, *rhl, *rel2, *rz_, *rz_row;
+  SEXP a, A, B, R, hini, D, eps, eps_row, z, h, hl, el2, z_, z_row, h_row, output;
   
   PROTECT(z = allocMatrix(REALSXP, nobs, ndim));
   PROTECT(z_ = allocMatrix(REALSXP, nobs, ndim));
@@ -22,7 +22,6 @@ SEXP eccc_sim(SEXP n, SEXP a0, SEXP Arch, SEXP Garch, SEXP V, SEXP inih, SEXP nu
   PROTECT(el2 = allocVector(REALSXP, ndim));
   PROTECT(hl = duplicate(inih));
   PROTECT(output = allocVector(VECSXP, 2));
-  PROTECT(y = allocVector(REALSXP,1 ));
   a = duplicate(a0);
   A = duplicate(Arch);
   B = duplicate(Garch);
@@ -43,16 +42,18 @@ SEXP eccc_sim(SEXP n, SEXP a0, SEXP Arch, SEXP Garch, SEXP V, SEXP inih, SEXP nu
   rD = REAL(D);
   rhl = REAL(hl);
   rel2 = REAL(el2);
-  ry = REAL(y);
 
   for(j=0; j<ndim; j++){
-    rel2[j] = rhini[j];
-    rhl[j] = rhini[j];
+    rel2[j] = 0.0;
+    rhl[j] = 0.0;
     rh_row[j] = 0.0;
     for(i=0; i<ndim; i++){
       rD[i+j*ndim] = 0.0;
     }
   }
+  /* copying initial value of the conditional variance */
+    F77_CALL(dcopy)(&ndim, rhini, &ione, rel2, &ione);
+    F77_CALL(dcopy)(&ndim, rhini, &ione, rhl, &ione);
 
   /* carry out the Cholesky decomposition of R */
  	for (j = 0; j < ndim; j++) {   /* setting lower left block = 0 */
@@ -61,19 +62,16 @@ SEXP eccc_sim(SEXP n, SEXP a0, SEXP Arch, SEXP Garch, SEXP V, SEXP inih, SEXP nu
 	  }
 	}
 	F77_CALL(dpotrf)("Upper", &ndim, rR, &ndim, &info); /* rR is a upper triangular matrix such that t(rR)%*%rR = R */
-                                                      /* "info" returns an index for the result of the Chlesky decomposition */
+                                                        /* "info" returns an index for the result of the Chlesky decomposition */
   /* generating a vector from N(0, I) or from t_df(0, I) */
     GetRNGstate();
       if(!R_FINITE(df)){
           for(i=0; i<(nobs*ndim); i++){
-                rz[i] = norm_rand();
+                rz[i] = rnorm(zero, one);
           }
       } else {
-          for(i=0; i<nobs; i++){
-              ry[0] = sqrt(df/rchisq(df));
-                 for(j=0; j<ndim; j++){
-                   rz[i + j*nobs] = norm_rand()*ry[0];    
-                 }
+          for(i=0; i<(nobs*ndim); i++){
+                   rz[i] = rt(df);    
           }
       }
     PutRNGstate();
@@ -110,8 +108,7 @@ SEXP eccc_sim(SEXP n, SEXP a0, SEXP Arch, SEXP Garch, SEXP V, SEXP inih, SEXP nu
   
   SET_VECTOR_ELT(output, 0, h);
   SET_VECTOR_ELT(output, 1, eps);
-      
-  UNPROTECT(12);
+
+  UNPROTECT(11);
   return(output);
 }
-

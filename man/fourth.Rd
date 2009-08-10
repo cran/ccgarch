@@ -3,8 +3,8 @@
 \title{ Fourth-order moment condition for the vector GARCH equation }
 
 \description{
-This function computes the fourth-order moment condition for the vector GARCH equation 
-in the (E)CCC-GARCH models.
+    This function computes the fourth-order moment condition for the vector GARCH equation 
+    in the (E)CCC-GARCH models.
 }
 
 \usage{
@@ -39,6 +39,6 @@ in the (E)CCC-GARCH models.
     \code{\link{stationarity}}
 }
 
-\keyword{algebra},
+\keyword{algebra}
 \keyword{multivariate}
 

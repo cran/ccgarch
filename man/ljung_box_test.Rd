@@ -3,7 +3,7 @@
 \title{ The Ljung-Box Test statistic }
 
 \description{
-This function performs the Ljung-Box Test for a univariate time series.
+    This function performs the Ljung-Box Test for a univariate time series.
 }
 
 \usage{
@@ -46,5 +46,5 @@ ljung.box.test(x)           # returns the LB Test statistic
 ljung.box.test(x^2)         # returns the McLeord-Li Test for no-ARCH effect
 }
 
-\keyword{htest},
+\keyword{htest}
 \keyword{ts}

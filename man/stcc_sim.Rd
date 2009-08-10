@@ -3,12 +3,12 @@
 \title{Simulating Data from an STCC-GARCH$(1,1)$ process}
 
 \description{
-This function simulates data either from the original STCC-GARCH by Silvennoinen and 
-Ter\"asvirta (2005) or from the Extended STCC-GARCH that has non-zero off-diagonal 
-entries in the parameter matrices in the GARCH equation, with multivariate normal or 
-student's \eqn{t} distribution. 
+    This function simulates data either from the original STCC-GARCH by Silvennoinen and 
+    Ter\"asvirta (2005) or from the Extended STCC-GARCH that has non-zero off-diagonal 
+    entries in the parameter matrices in the GARCH equation, with multivariate normal or 
+    student's \eqn{t} distribution. 
 
-The dimension \eqn{(N)} is determined by the number of elements in the \eqn{\mathbf{a}} vector. 
+    The dimension \eqn{(N)} is determined by the number of elements in the \eqn{\mathbf{a}} vector. 
 }
 
 \usage{
@@ -85,7 +85,7 @@ stcc.data.t. <- stcc.sim(nobs, a, A, B, R1, R2,
                       tr.par=tr.para, st.par=st.para, d.f=nu, model="diagonal")
 }
 
-\keyword{ts},
-\keyword{datagen},
-\keyword{models},
+\keyword{ts}
+\keyword{datagen}
+\keyword{models}
 \keyword{multivariate}

@@ -3,7 +3,7 @@
 \title{ The log-likelihood function of the (E)CCC-GARCH model }
 
 \description{
-This function computes a log-likelihood of the (E)CCC-GARCH(1,1) model.
+    This function computes a log-likelihood of the (E)CCC-GARCH(1,1) model.
 }
 
 \usage{
@@ -32,7 +32,7 @@ This function computes a log-likelihood of the (E)CCC-GARCH(1,1) model.
   available at \url{http://swopec.hhs.se/hastef/abs/hastef0649.htm}.
 }
 
-\keyword{ts},
-\keyword{models},
-\keyword{ multivariate}
+\keyword{ts}
+\keyword{models}
+\keyword{multivariate}
 

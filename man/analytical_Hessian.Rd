@@ -3,7 +3,7 @@
 \title{ Analytical Hessian of the (E)CCC-GARCH}
 
 \description{
-This function computes the analytical Hessian of the log-likelihood function of the (E)CCC-GARCH model.
+    This function computes the analytical Hessian of the log-likelihood function of the (E)CCC-GARCH model.
 }
 
 \usage{
@@ -34,8 +34,8 @@ This function computes the analytical Hessian of the log-likelihood function of 
   available at \url{http://swopec.hhs.se/hastef/abs/hastef0649.htm}.
 }
 
-\keyword{ts},
-\keyword{models},
+\keyword{ts}
+\keyword{models}
 \keyword{multivariate}
 
 

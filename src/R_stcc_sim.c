@@ -7,12 +7,12 @@
 SEXP stcc_sim(SEXP n, SEXP a0, SEXP Arch, SEXP Garch, SEXP R, SEXP inih, SEXP nu){ 
   int i, j, k, nobs = asInteger(n), ndim = Rf_nrows(Arch), cordim = ndim*ndim, info, ione = 1;
   double one = 1.0, zero = 0.0, df = asReal(nu), 
-      *ra, *rA, *rB, *rhini, *rel2, *rh, *rhl, *rh_row, *ry,                      /* for conditional variance equation */
+      *ra, *rA, *rB, *rhini, *rel2, *rh, *rhl, *rh_row,                           /* for conditional variance equation */
       *rvR, *tmprR,                                                               /* for correlation matrices */
       *reps, *rz, *rz_row, *rz_tmp, *reps_row;                                    /* for residuals or standardised residuals */
   
   SEXP a, A, B, hini, el2, h, hl, h_row, vR, tmpR,
-       eps, z, z_row, z_tmp, eps_row, y,
+       eps, z, z_row, z_tmp, eps_row,
        output;
 
   PROTECT(eps = allocMatrix(REALSXP, nobs, ndim));
@@ -20,7 +20,6 @@ SEXP stcc_sim(SEXP n, SEXP a0, SEXP Arch, SEXP Garch, SEXP R, SEXP inih, SEXP nu
   PROTECT(z_row = allocVector(REALSXP, ndim));
   PROTECT(z_tmp = allocVector(REALSXP, ndim));
   PROTECT(eps_row = allocVector(REALSXP, ndim));
-  PROTECT(y = allocVector(REALSXP, 1));
     
   /* a, A, B, hini, el2, h, hl, h_row */
   PROTECT(a = duplicate(a0));
@@ -41,7 +40,6 @@ SEXP stcc_sim(SEXP n, SEXP a0, SEXP Arch, SEXP Garch, SEXP R, SEXP inih, SEXP nu
   rz_row = REAL(z_row);
   rz_tmp = REAL(z_tmp);
   reps_row = REAL(eps_row);
-  ry = REAL(y);
 
   rvR = REAL(vR);
   tmprR = REAL(tmpR);
@@ -59,22 +57,18 @@ SEXP stcc_sim(SEXP n, SEXP a0, SEXP Arch, SEXP Garch, SEXP R, SEXP inih, SEXP nu
     GetRNGstate();
       if(!R_FINITE(df)){
           for(i=0; i<(nobs*ndim); i++){
-                rz[i] = norm_rand();
+                rz[i] = rnorm(zero, one);
           }
       } else {
-          for(i=0; i<nobs; i++){
-              ry[0] = sqrt(df/rchisq(df));
-                 for(j=0; j<ndim; j++){
-                   rz[i + j*nobs] = norm_rand()*ry[0];    
-                 }
+          for(i=0; i<(nobs*ndim); i++){
+                   rz[i] = rt(df);    
           }
       }
     PutRNGstate();
 
-    for(j=0; j<ndim; j++){
-      rel2[j] = rhini[j];               /* initial values */
-      rhl[j] = rhini[j];                /* initial values */
-    }
+  /* copying initial value of the conditional variance */
+    F77_CALL(dcopy)(&ndim, rhini, &ione, rel2, &ione);
+    F77_CALL(dcopy)(&ndim, rhini, &ione, rhl, &ione);
 /*****************************************************************************************/
 for(i=0; i<nobs; i++){
     for(j=0; j<cordim; j++){
@@ -110,6 +104,6 @@ for(i=0; i<nobs; i++){
   SET_VECTOR_ELT(output, 0, h);
   SET_VECTOR_ELT(output, 1, eps);
       
-  UNPROTECT(17);
+  UNPROTECT(16);
   return(output);
 }

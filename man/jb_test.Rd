@@ -3,8 +3,8 @@
 \title{ The Lomnicki-Jarque-Bera Test of normality (JB test) }
 
 \description{
-This function performs the Lomnicki-Jarque-Bera Test of normality and returns test statistics and 
-associated p-values.
+    This function performs the Lomnicki-Jarque-Bera Test of normality and returns test statistics and 
+    associated p-values.
 }
 
 \usage{
@@ -44,5 +44,5 @@ associated p-values.
     jb.test(X)
 }
 
-\keyword{htest},
+\keyword{htest}
 \keyword{ts}
