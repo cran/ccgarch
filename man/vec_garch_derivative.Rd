@@ -12,7 +12,7 @@
 }
 
 \arguments{
-    \item{dvar}{a matrix of the observed residuals \eqn{(T \times N)}}
+    \item{dvar}{a matrix of the data used for estimating an ECCC or DCC GARCH model  \eqn{(T \times N)}}
     \item{B}{a GARCH parameter matrix in the vector GARCH equation \eqn{(N \times N)}}
     \item{h}{a matrix of conditional variances \eqn{(T \times N)}}
 }

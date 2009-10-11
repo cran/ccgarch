@@ -11,7 +11,7 @@
 }
 
 \arguments{
-    \item{x}{ vector or matrix of variables }
+    \item{x}{ vector or matrix of variables}
 }
 
 \value{

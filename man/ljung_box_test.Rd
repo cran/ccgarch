@@ -11,7 +11,7 @@
 }
 
 \arguments{
-    \item{x}{a vector of variables }
+    \item{x}{a vector of variables to be tested}
 }
 
 \value{

@@ -1,6 +1,6 @@
 \name{dcc.estimation}
 \alias{dcc.estimation}
-\title{ Estimating (E)DCC-GARCH model }
+\title{ Estimating an (E)DCC-GARCH model }
 \description{
     This function carries out the two step estimation of the (E)DCC-GARCH model and returns 
     estimates, standardised residuals, the estimated conditional variances, and the dynamic conditional 
@@ -18,7 +18,7 @@ method="BFGS", gradient=1, message=1)
     \item{iniB}{a matrix of initial values for the GARCH parameter
       matrix \eqn{(N \times N)}}
     \item{ini.dcc}{a vector of initial values for the DCC parameters \eqn{(2 \times 1)}}
-    \item{dvar}{a matrix of the observed residuals \eqn{(T \times N)}}
+    \item{dvar}{a matrix of the data \eqn{(T \times N)}}
     \item{model}{a character string describing the model. \code{"diagonal"} for the diagonal model 
                and \code{"extended"} for the extended (full ARCH and GARCH parameter matrices) model}
     \item{method}{a character string specifying the optimisation method in \code{optim}. 

@@ -19,7 +19,8 @@ dlc <- function(dcc.para, B, u, h, model){
       } else {
          npar.h <- ndim*(2*ndim+1)
       }
-   Qtilde <- 1/sqrt(Qt[,as.vector(In)==1])
+#   Qtilde <- 1/sqrt(Qt[,as.vector(In)==1])
+   Qtilde <- sqrt(Qt[,as.vector(In)==1])      # modified on 09.10.11
    dvecQ <- matrix(0, nobs, 2*ndim^2)
    dvecP <- matrix(0, nobs, 2*ndim^2)
    dlc <- matrix(0, nobs, 2)

@@ -12,7 +12,7 @@
 }
 
 \arguments{
-    \item{x}{ a vector or matrix of variables }
+    \item{x}{ a vector or matrix of variables to be tested}
 }
 
 \value{

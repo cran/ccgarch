@@ -10,9 +10,9 @@
 
 }
 \arguments{
-  \item{u}{a matrix of the observed residuals \eqn{(T \times N)}}
-  \item{B}{the estimated GARCH parameter matrix \eqn{(N \times N)}}
-  \item{h}{a matrix of the estimated conditional variances \eqn{(T \times N)}}
+  \item{u}{a matrix of the data data used for estimating the (E)DCC-GARCH(1,1) model \eqn{(T \times N)}}
+  \item{B}{a GARCH parameter matrix \eqn{(N \times N)}}
+  \item{h}{a matrix of the conditional variances \eqn{(T \times N)}}
   \item{model}{a character string describing the model. \code{"diagonal"} for the diagonal model 
                and \code{"extended"} for the extended (full ARCH and GARCH parameter matrices) model}
 }

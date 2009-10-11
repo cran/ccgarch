@@ -13,7 +13,7 @@
 
 \arguments{
     \item{param}{a vector of DCC parameters \eqn{(2 \times 1)}}
-    \item{dvar}{a matrix of standardised residuals \eqn{(T \times N)}}
+    \item{dvar}{a matrix of the standardised residuals \eqn{(T \times N)}}
     \item{d}{a step size for computing numerical gradient}
 }
 

@@ -4,6 +4,6 @@
    uni.vola <- function(a,u){
       usq <- u^2
 #      .Call("uni_vola", a, usq, PACKAGE="ccgarch")
-      .Call(uni_vola, a, usq)
+      .Call("uni_vola", a, usq)
 
    }

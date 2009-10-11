@@ -1,6 +1,6 @@
 \name{dcc.sim}
 \alias{dcc.sim}
-\title{Simulating a DCC-GARCH(1,1) process}
+\title{Simulating an (E)DCC-GARCH(1,1) process}
 
 \description{
     This function simulates data either from the original DCC-GARCH by Engle (2002) or 

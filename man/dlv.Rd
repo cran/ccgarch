@@ -1,6 +1,6 @@
 \name{dlv}
 \alias{dlv}
-\title{Gradient of the GARCH part of the log-likelihood function of the DCC GARCH model }
+\title{Gradient of the GARCH part of the log-likelihood function of an (E)DCC-GARCH model }
 \description{
     This function returns the analytical partial derivatives of the volatility part of 
     the log-likelihood function of the DCC-GARCH model.  
@@ -10,7 +10,7 @@
     dlv(u, a, A, B, model)
 }
 \arguments{
-  \item{u}{a matrix of the observed residuals \eqn{(T \times N)} }
+  \item{u}{a matrix of the data used for estimating an (E)DCC-GARCH model \eqn{(T \times N)} }
   \item{a}{a vector of the constants in the volatility part \eqn{(N \times 1)}}
   \item{A}{an ARCH parameter matrix \eqn{(N \times N)}}
   \item{B}{a GARCH parameter matrix \eqn{(N \times N)}}

@@ -5,7 +5,7 @@
 #include <R_ext/Lapack.h> /* for dpotrf, the Cholesky decomposition */
 
 SEXP stcc_sim(SEXP n, SEXP a0, SEXP Arch, SEXP Garch, SEXP R, SEXP inih, SEXP nu){ 
-  int i, j, k, nobs = asInteger(n), ndim = Rf_nrows(Arch), cordim = ndim*ndim, info, ione = 1;
+  int i, j, k, nobs = asInteger(n), ndim = LENGTH(a0), cordim = ndim*ndim, info, ione = 1;
   double one = 1.0, zero = 0.0, df = asReal(nu), 
       *ra, *rA, *rB, *rhini, *rel2, *rh, *rhl, *rh_row,                           /* for conditional variance equation */
       *rvR, *tmprR,                                                               /* for correlation matrices */
@@ -89,11 +89,9 @@ for(i=0; i<nobs; i++){
     F77_CALL(dgemv)("N", &ndim, &ndim, &one, rA, &ndim, rel2, &ione, &zero, rh_row, &ione);   
     F77_CALL(dgemv)("N", &ndim, &ndim, &one, rB, &ndim, rhl, &ione, &one, rh_row, &ione);     
     F77_CALL(daxpy)(&ndim, &one, ra, &ione, rh_row, &ione);
-    for(j=0; j<ndim; j++){
-      reps_row[j] = sqrt(rh_row[j])*rz_row[j];
-    }
     /* saving elements */
     for(j=0; j<ndim; j++){
+      reps_row[j] = sqrt(rh_row[j])*rz_row[j];
       reps[i+j*nobs] = reps_row[j];           /* saving simulated eps */
       rh[i+j*nobs] = rh_row[j];               /* saving simulated volatilities */
       rel2[j] = R_pow_di(reps_row[j],2);      /* eps_{-1}^2: used in the next step of loop */

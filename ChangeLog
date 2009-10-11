@@ -1,0 +1,10 @@
+Changes in Ver 0.1.7
+   * Corrected a bug in calculating standard errors of the estimates in "dcc_results.R". 
+   * Considerable changes in descriptions of the help files.
+
+Changes in Version 0.1.6
+   * Modified the C-level source code (R_eccc_sim.c) for simulating a CCC-GARCH model.
+
+
+
+

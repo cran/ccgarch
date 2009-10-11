@@ -12,7 +12,7 @@
 
 \arguments{
     \item{param}{a vector of all the parameters in the (E)CCC-GARCH model}
-    \item{dvar}{a matrix of the observed residuals \eqn{(T \times N)}}
+    \item{dvar}{a matrix of the data used for estimating the (E)DCC-GARCH model \eqn{(T \times N)}}
     \item{model}{a character string describing the model. \code{"diagonal"} for the diagonal model 
                  and \code{"extended"} for the extended (full ARCH and GARCH parameter matrices) model}
 }

@@ -17,7 +17,7 @@
       Id <- diag(length(a))
       inih <- solve(Id-A-B)%*%a
 #      sim <- .Call("stcc_sim", nobs, a, A, B, vecR, inih, d.f, PACKAGE="ccgarch")
-      sim <- .Call(stcc_sim, nobs, a, A, B, vecR, inih, d.f)
+      sim <- .Call("stcc_sim", nobs, a, A, B, vecR, inih, d.f)
       list( h = sim[[1]][(cut+1):nobs,],
             eps = sim[[2]][(cut+1):nobs,],
             tr.var = tr.var,

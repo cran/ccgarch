@@ -11,8 +11,8 @@
 }
 
 \arguments{
-  \item{param}{a vector of the parameters \eqn{(npar \times 1)} }
-  \item{dvar}{a matrix of the observed residuals \eqn{(T \times N)}}
+  \item{param}{initial values for a vector of the parameters \eqn{(npar \times 1)} }
+  \item{dvar}{a matrix of the data \eqn{(T \times N)}}
   \item{model}{a character string describing the model. \code{"diagonal"} for the diagonal model 
                and \code{"extended"} for the extended (full ARCH and GARCH parameter matrices) model}
 }

@@ -1,6 +1,6 @@
 \name{dlv.est}
 \alias{dlv.est}
-\title{Gradient of the GARCH part of the log-likelihood function of the DCC GARCH model }
+\title{Gradient of the GARCH part of the log-likelihood function of an (E)DCC GARCH model }
 \description{
     This function returns the gradient of the volatility part of the log-likelihood function of the DCC.
 }
@@ -11,7 +11,7 @@
 
 \arguments{
   \item{par}{a vector of the parameters in the vector GARCH equation}
-  \item{dvar}{a matrix of the observed residuals \eqn{(T \times N)}}
+  \item{dvar}{a matrix of the data used for estimating an (E)DCC-GARCH model \eqn{(T \times N)}}
   \item{model}{a character string describing the model. \code{"diagonal"} for the diagonal model 
                and \code{"extended"} for the extended (full ARCH and GARCH parameter matrices) model}
 }

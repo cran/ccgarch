@@ -11,7 +11,7 @@
 
 \arguments{
   \item{a}{a vector of parameters in the GARCH(1,1) equation \eqn{(3 \times 1)}}
-  \item{u}{a vector of the observed residuals \eqn{(T \times 1)}}
+  \item{u}{a vector of the data \eqn{(T \times 1)}}
 }
 
 \value{

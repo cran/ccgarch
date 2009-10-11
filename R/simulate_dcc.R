@@ -13,7 +13,7 @@ dcc.sim <- function(nobs, a, A, B, R, dcc.para, d.f = Inf, cut=1000, model){
   Id <- diag(length(a))
   inih <- solve(Id-A-B)%*%a
   dccpar1 <- dcc.para[1]; dccpar2 <- dcc.para[2]
-  sim <- .Call(dcc_sim, nobs, a, A, B, inih, R, dccpar1, dccpar2, d.f)
+  sim <- .Call("dcc_sim", nobs, a, A, B, inih, R, dccpar1, dccpar2, d.f)
   list(  z     = sim[[1]][(cut+1):(nobs),],
          std.z = sim[[2]][(cut+1):(nobs),],
          dcc   = sim[[3]][(cut+1):(nobs),],

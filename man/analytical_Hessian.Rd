@@ -15,7 +15,7 @@
   \item{A}{an ARCH parameter matrix in the vector GARCH equation \eqn{(N \times N)}}
   \item{B}{a GARCH parameter matrix in the vector GARCH equation \eqn{(N \times N)}}
   \item{R}{a constant conditional correlation matrix \eqn{(N \times N)}}
-  \item{u}{a matrix of the observed residuals \eqn{(T \times N)}}
+  \item{u}{a matrix of the data data used for estimating the (E)CCC-GARCH(1,1) model \eqn{(T \times N)}}
   \item{model}{a character string describing the model. \code{"diagonal"} for the diagonal model and \code{"extended"} for the extended (full ARCH and GARCH parameter matrices) model}
 }
 

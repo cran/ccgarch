@@ -6,27 +6,26 @@
 
 SEXP eccc_sim(SEXP n, SEXP a0, SEXP Arch, SEXP Garch, SEXP V, SEXP inih, SEXP nu)
 {
-  int i, j, nobs = asInteger(n), ndim = Rf_nrows(V), info, ione = 1;
+  int i, j, nobs = asInteger(n), ndim = LENGTH(a0), info, ione = 1;
   double one = 1.0, zero = 0.0, df = asReal(nu),
-         *rz, *ra, *rA, *rB,  *rR, *rhini, *rD, *reps, *reps_row, *rh_row, *rh, *rhl, *rel2, *rz_, *rz_row;
-  SEXP a, A, B, R, hini, D, eps, eps_row, z, h, hl, el2, z_, z_row, h_row, output;
+         *rz, *ra, *rA, *rB,  *rR, *rhini, *reps, *reps_row, *rh_row, *rh, *rhl, *rel2, *rz_, *rz_row;
+  SEXP a, A, B, R, hini, eps, eps_row, z, h, hl, el2, z_, z_row, h_row, output;
   
   PROTECT(z = allocMatrix(REALSXP, nobs, ndim));
   PROTECT(z_ = allocMatrix(REALSXP, nobs, ndim));
   PROTECT(eps = allocMatrix(REALSXP, nobs, ndim));
   PROTECT(h = allocMatrix(REALSXP, nobs, ndim));
-  PROTECT(D = allocMatrix(REALSXP, ndim, ndim));
   PROTECT(eps_row = allocVector(REALSXP, ndim));
   PROTECT(h_row = allocVector(REALSXP, ndim));
   PROTECT(z_row = allocVector(REALSXP, ndim));
   PROTECT(el2 = allocVector(REALSXP, ndim));
   PROTECT(hl = duplicate(inih));
   PROTECT(output = allocVector(VECSXP, 2));
-  a = duplicate(a0);
-  A = duplicate(Arch);
-  B = duplicate(Garch);
-  R = duplicate(V);
-  hini = duplicate(inih);
+  PROTECT(a = duplicate(a0));
+  PROTECT(A = duplicate(Arch));
+  PROTECT(B = duplicate(Garch));
+  PROTECT(R = duplicate(V));
+  PROTECT(hini = duplicate(inih));
   ra = REAL(a);
   rA = REAL(A);
   rB = REAL(B);
@@ -39,7 +38,6 @@ SEXP eccc_sim(SEXP n, SEXP a0, SEXP Arch, SEXP Garch, SEXP V, SEXP inih, SEXP nu
   reps_row = REAL(eps_row);
   rh_row = REAL(h_row);
   rh = REAL(h);
-  rD = REAL(D);
   rhl = REAL(hl);
   rel2 = REAL(el2);
 
@@ -47,9 +45,6 @@ SEXP eccc_sim(SEXP n, SEXP a0, SEXP Arch, SEXP Garch, SEXP V, SEXP inih, SEXP nu
     rel2[j] = 0.0;
     rhl[j] = 0.0;
     rh_row[j] = 0.0;
-    for(i=0; i<ndim; i++){
-      rD[i+j*ndim] = 0.0;
-    }
   }
   /* copying initial value of the conditional variance */
     F77_CALL(dcopy)(&ndim, rhini, &ione, rel2, &ione);
@@ -87,28 +82,22 @@ SEXP eccc_sim(SEXP n, SEXP a0, SEXP Arch, SEXP Garch, SEXP V, SEXP inih, SEXP nu
     F77_CALL(daxpy)(&ndim, &one, ra, &ione, rh_row, &ione);
 
     for(j=0; j<ndim; j++){
-      if(ISNAN(rh_row[j]))
-        error("'rtmp' contains 'NaN'");
-      rD[j*(ndim+1)] = sqrt(rh_row[j]);
       rz_row[j] = rz_[i+j*nobs];
     }
-    /* creating eps */
-    F77_CALL(dgemv)("N", &ndim, &ndim, &one, rD, &ndim, rz_row, &ione, &zero, reps_row, &ione);   /* reps_ = D%*%z */
     
     /* saving and initialising elements */
     for(j=0; j<ndim; j++){
-      reps[i+j*nobs] = reps_row[j];           /* saving simulated eps */
-      rh[i+j*nobs] = rh_row[j];               /* saving simulated volatilities */
-      rel2[j] = R_pow_di(reps_row[j],2);      /* eps_{-1}^2: used in the next step of loop */
-      rhl[j] = rh_row[j];                     /* h_{-1}: used in the next step of loop */
-      reps_row[j] = 0.0;
-      rh_row[j] = 0.0;
+      reps_row[j] = sqrt(rh_row[j])*rz_row[j];  /* reps_ = D%*%z */
+      reps[i+j*nobs] = reps_row[j];             /* saving simulated eps */
+      rh[i+j*nobs] = rh_row[j];                 /* saving simulated volatilities */
+      rel2[j] = R_pow_di(reps_row[j],2);        /* eps_{-1}^2: used in the next step of loop */
+      rhl[j] = rh_row[j];                       /* h_{-1}: used in the next step of loop */
     }
   }
   
   SET_VECTOR_ELT(output, 0, h);
   SET_VECTOR_ELT(output, 1, eps);
 
-  UNPROTECT(11);
+  UNPROTECT(15);
   return(output);
 }

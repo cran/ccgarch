@@ -11,10 +11,10 @@
 }
 
 \arguments{
-  \item{dvar}{a matrix of the observed residuals \eqn{(T \times N)}}
-  \item{a}{a vector of constants in the vector GARCH equation \eqn{(N \times 1)}}
-  \item{A}{an ARCH parameter matrix in the vector GARCH equation \eqn{(N \times N)}}
-  \item{B}{a GARCH parameter matrix in the vector GARCH equation \eqn{(N \times N)}}
+  \item{dvar}{a matrix of the data, used as epsilon \eqn{(T \times N)}}
+  \item{a}{initial values for constants in the vector GARCH equation \eqn{(N \times 1)}}
+  \item{A}{initial values for an ARCH parameter matrix in the vector GARCH equation \eqn{(N \times N)}}
+  \item{B}{initial values for a GARCH parameter matrix in the vector GARCH equation \eqn{(N \times N)}}
 }
 
 \value{

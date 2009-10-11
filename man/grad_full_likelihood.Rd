@@ -16,7 +16,7 @@
     \item{A}{an ARCH parameter matrix in the vector GARCH equation \eqn{(N \times N)}}
     \item{B}{a GARCH parameter matrix in the vector GARCH equation \eqn{(N \times N)}}
     \item{dcc.para}{a vector of the DCC parameters \eqn{(2 \times 1)}}
-    \item{dvar}{a matrix of the observed residuals \eqn{(T \times N)}}
+    \item{dvar}{a matrix of the data used for estimating the (E)DCC-GARCH model \eqn{(T \times N)}}
     \item{d}{a step size for computing numerical gradient}
     \item{model}{a character string describing the model. \code{"diagonal"} for the diagonal model 
                  and \code{"extended"} for the extended (full ARCH and GARCH parameter matrices) model}

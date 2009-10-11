@@ -12,7 +12,7 @@
       Id <- diag(length(a))
       inih <- solve(Id-A-B)%*%a
 #      sim <- .Call("eccc_sim", nobs, a, A, B, R, inih, d.f, PACKAGE="ccgarch")
-      sim <- .Call(eccc_sim, nobs, a, A, B, R, inih, d.f)
+      sim <- .Call("eccc_sim", nobs, a, A, B, R, inih, d.f)
       list( h = sim[[1]][(cut+1):(nobs),],
             eps = sim[[2]][(cut+1):(nobs),])
    }

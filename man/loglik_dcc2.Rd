@@ -11,7 +11,7 @@
 }
 
 \arguments{
-  \item{param}{a vector of the DCC parameters \eqn{(2 \times 1)}}
+  \item{param}{initial values for the DCC parameters \eqn{(2 \times 1)}}
   \item{dvar}{a matrix of the standardised residuals \eqn{(T \times N)}}
 }
 

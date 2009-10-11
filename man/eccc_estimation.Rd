@@ -12,11 +12,11 @@
 }
 
 \arguments{
-    \item{a}{a vector of constants \eqn{(N \times 1)}}
-    \item{A}{an ARCH parameter matrix \eqn{(N \times N)}}
-    \item{B}{a GARCH parameter matrix \eqn{(N \times N)}}
-    \item{R}{a constant conditional correlation matrix \eqn{(N \times N)}}
-    \item{dvar}{a matrix of data \eqn{(T \times N)}}
+    \item{a}{initial values for constants \eqn{(N \times 1)}}
+    \item{A}{initial values for an ARCH parameter matrix \eqn{(N \times N)}}
+    \item{B}{initial values for a GARCH parameter matrix \eqn{(N \times N)}}
+    \item{R}{initial values a constant conditional correlation matrix \eqn{(N \times N)}}
+    \item{dvar}{a matrix of data used for (E)CCC-GARCH estimation \eqn{(T \times N)}}
     \item{model}{a character string describing the model. \code{"diagonal"} for the diagonal model 
                and \code{"extended"} for the extended (full ARCH and GARCH parameter matrices) model}
     \item{method}{a character string specifying the optimisation method in \code{optim}. 

@@ -11,9 +11,9 @@
 
 }
 \arguments{
-  \item{dcc.para}{the estimates of the DCC parameters  \eqn{(2 \times 1)}}
-  \item{B}{the estimated GARCH matrix  \eqn{(N \times N)}}
-  \item{u}{a matrix of the observed residuals  \eqn{(T \times N)}}
+  \item{dcc.para}{the estimates of the (E)DCC parameters  \eqn{(2 \times 1)}}
+  \item{B}{the estimated GARCH parameter matrix  \eqn{(N \times N)}}
+  \item{u}{a matrix of the used for estimating the (E)DCC-GARCH model  \eqn{(T \times N)}}
   \item{h}{a matrix of the estimated conditional variances  \eqn{(T \times N)}}
   \item{model}{a character string describing the model. \code{"diagonal"} for the diagonal model 
                and \code{"extended"} for the extended (full ARCH and GARCH parameter matrices) model}
