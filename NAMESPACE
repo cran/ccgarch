@@ -42,6 +42,8 @@ export(
 "dcc.estimation1",
 "dcc.estimation2",
 "dcc.results",
-"eccc.estimation"
+"eccc.estimation",
+"hh.test",
+"nt.test"
 )
 

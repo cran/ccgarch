@@ -1,3 +1,6 @@
+Changes in Ver 0.2.0
+   * Add two functions, "hh.test" and "nt.test" for doing diagnostic tests
+
 Changes in Ver 0.1.9
    * Corrected bugs in "dlc.R"
 
