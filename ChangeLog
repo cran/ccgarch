@@ -1,3 +1,10 @@
+Changes in Ver 0.2.0-2
+   * the same as those in Ver 0.2.0-1 with some corrections in Rd files.
+
+Changes in Ver 0.2.0-1 (not submitted to CRAN)
+   * Replace "is.real()" with "is.double".
+   * Some functions are made invisible, that is, not exported.
+
 Changes in Ver 0.2.0
    * Add two functions, "hh.test" and "nt.test" for doing diagnostic tests
 

@@ -79,10 +79,13 @@ tr.para <- c(5,0)
 # a parameter vector for a GARCH(1,1) transition variable
 st.para <- c(0.02,0.04, 0.95)   
 nu <- 15
+
+\dontrun{
 stcc.data <- stcc.sim(nobs, a, A, B, R1, R2, 
                       tr.par=tr.para, st.par=st.para, model="diagonal")
 stcc.data.t. <- stcc.sim(nobs, a, A, B, R1, R2, 
                       tr.par=tr.para, st.par=st.para, d.f=nu, model="diagonal")
+}
 }
 
 \keyword{ts}

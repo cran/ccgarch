@@ -57,4 +57,5 @@
 
 \keyword{ts}
 \keyword{models}
+\keyword{optimize}
 \keyword{multivariate}

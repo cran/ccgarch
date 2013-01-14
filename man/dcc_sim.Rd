@@ -80,13 +80,15 @@ B <- diag(c(0.75, 0.6, 0.8))
 uncR <- matrix(c(1.0, 0.4, 0.3, 0.4, 1.0, 0.12, 0.3, 0.12, 1.0),3,3)
 dcc.para <- c(0.01,0.98)
 
+\dontrun{
+
 # for normally distributed innovations
 dcc.data <- dcc.sim(nobs, a, A, B, uncR, dcc.para, model="diagonal")
 
 # for t distributed innovations
 dcc.data.t <- dcc.sim(nobs, a, A, B, uncR, dcc.para, d.f=nu,
 model="diagonal")
-
+}
 }
 
 

@@ -51,10 +51,8 @@ method="BFGS", gradient=1, message=1)
     series \code{dvar} by the estimated conditional standard deviations \code{sqrt(h)}. 
     See Engle (2002), in particular the equations (2) and (14), for details.
     
-    \code{dcc.estimation} calls \code{\link{dcc.estimation1}} and \code{\link{dcc.estimation2}} for the 
-    first and second stage estimation, respectively.
-
-    The details of the first and second stage estimation are also saved.
+    The details of the first and second stage estimation are also saved in \code{first} 
+    and \code{second}, respectively.
     
     The switch variable \code{simulation} is useful when one uses \code{dcc.estimation} for simulation. 
     It supresses the display of the completion message. 
@@ -77,12 +75,7 @@ method="BFGS", gradient=1, message=1)
 }
 
 \seealso{
-    \code{\link{dcc.estimation1}}, 
-    \code{\link{dcc.estimation2}}, 
-    \code{\link{loglik.dcc1}}, 
-    \code{\link{loglik.dcc2}}, 
-    \code{\link{vector.garch}}, 
-    \code{\link{dcc.est}}
+    \code{\link{dcc.sim}}
 }
 
 \examples{
@@ -95,17 +88,19 @@ method="BFGS", gradient=1, message=1)
   dcc.para <- c(0.01,0.98)
   dcc.data <- dcc.sim(nobs, a, A, B, uncR, dcc.para, model="diagonal")
 
+\dontrun{
 # Estimating a DCC-GARCH(1,1) model
   dcc.results <- dcc.estimation(inia=a, iniA=A, iniB=B, ini.dcc=dcc.para, 
         dvar=dcc.data$eps, model="diagonal")
 
 # Parameter estimates and their robust standard errors
   dcc.results$out
-
+}
 }
 
 \keyword{ts}
 \keyword{multivariate}
 \keyword{optimize}
+\keyword{models}
 
 

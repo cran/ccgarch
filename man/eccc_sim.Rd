@@ -74,8 +74,11 @@ a <- c(0.003, 0.005, 0.001)
 A <- diag(c(0.2,0.3,0.15))
 B <- diag(c(0.79, 0.6, 0.8))
 R <- matrix(c(1.0, 0.4, 0.3, 0.4, 1.0, 0.12, 0.3, 0.12, 1.0),3,3) 
+
+\dontrun{
 ccc.data   <- eccc.sim(nobs,a, A, B, R, model="diagonal")
 ccc.data.t <- eccc.sim(nobs,a, A, B, R, d.f=nu, model="diagonal")
+}
 }
 
 \keyword{ts}

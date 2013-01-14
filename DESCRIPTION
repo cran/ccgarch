@@ -1,13 +1,13 @@
 Package: ccgarch
-Version: 0.2.0
-Date: 2010-03-20
+Version: 0.2.0-2
+Date: 2013-01-14
 Title: Conditional Correlation GARCH models
 Author: Tomoaki Nakatani <naktom2@gmail.com>
 Maintainer: Tomoaki Nakatani <naktom2@gmail.com>
-Depends: R (>= 2.6.1)
+Depends: R (>= 2.15.2)
 Description: Functions for estimating and simulating the family of the
         CC-GARCH models.
 License: GPL (>= 2)
-Packaged: 2010-03-23 09:06:36 UTC; naktom
+Packaged: 2013-01-14 11:43:58 UTC; nakatani
 Repository: CRAN
-Date/Publication: 2010-03-23 10:07:46
+Date/Publication: 2013-01-14 13:53:56
