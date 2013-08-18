@@ -4,7 +4,8 @@ loglik.dcc2 <- function(param, dvar){        # dvar is the standardised residual
    ndim <- dim(dvar)[2]
    DCC <- dcc.est(dvar, param)$DCC
 
-   lf <- numeric(ndim)
+#   lf <- numeric(ndim)  
+   lf <- numeric(nobs)  # bug fixed on 2013.08.18
    for( i in 1:nobs){                        
       R <- matrix(DCC[i,], ndim, ndim)
       invR <- solve(R)

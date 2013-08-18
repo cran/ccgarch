@@ -1,5 +1,5 @@
 90bef45a6a9c8769c6c598d3b36dd0cf *ChangeLog
-c9e34274635cd748234f2ceacb0880ac *DESCRIPTION
+2ab327e89dae98af39a5117e3efd95b7 *DESCRIPTION
 6ed641f17ea6de787023542e79e61b49 *NAMESPACE
 ee88e406a53551062dfec8eb87df9f8c *R/R_dcc.R
 eb49720cd3b1fb3e131b8c720d1a880f *R/analytical_Hessian.R
@@ -22,7 +22,7 @@ db4e6a81e8320554846d22be0f4a9940 *R/hh_test.R
 3ddffcb72d05ae3fc23eeee7ff526e84 *R/ljung_box_test.R
 9b06e09630e51b13a5a6a9a544da9a81 *R/loglik_dcc.R
 0c99fec32b592a0fd7f40539d4615961 *R/loglik_dcc1.R
-3d55d56ad4ce3431433d85f4df7d4efa *R/loglik_dcc2.R
+066eab6a3dc8fac160894afd3fe5e0bb *R/loglik_dcc2.R
 c14cf310771a59a2b19e3132f35ae6ff *R/loglik_eccc.R
 cdde42e2f49c2b2991be32d3a210ac6f *R/nt_test.R
 34ff6873af3f274808d61dbd25d64c51 *R/p_mat.R
