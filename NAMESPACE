@@ -10,8 +10,8 @@ vector_garch
 
 export(
 #"vector.garch",
-#"uni.vola.sim",
-#"uni.vola",
+"uni.vola.sim",
+"uni.vola",
 "stcc.sim",
 "eccc.sim",
 "dcc.sim",
@@ -30,7 +30,7 @@ export(
 #"vec.garch.derivative",
 #"loglik.dcc1",
 #"loglik.dcc2",
-#"loglik.dcc",
+"loglik.dcc",
 #"loglik.eccc",
 #"grad.dcc2",
 #"dlv",

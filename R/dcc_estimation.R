@@ -54,8 +54,7 @@
          dcc <- dcc.est(std.resid, second.stage$par)$DCC
          
          # computing log likelihood at the estimates
-#         lf1 <- -0.5*ndim*log(2*pi) - rowSums(log(h)) -0.5*rowSums(std.resid^2)
-         lf1 <- -0.5*ndim*log(2*pi) - rowSums(log(h))          # a bug fixed on 2009.07.23  
+         lf1 <- -0.5*ndim*log(2*pi) - 0.5*rowSums(log(h))          # a bug fixed on 2014.02.20  
          lf2 <- numeric(nobs)
          for( i in 1:nobs){                        
             R <- matrix(dcc[i,], ndim, ndim)
