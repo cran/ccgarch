@@ -12,7 +12,7 @@
         }
       nobs <- nobs+cut; ndim <- length(a)
       tr.var <- uni.vola.sim(tr.par, nobs, d.f = Inf, cut = cut)$eps
-      st <- tr.func(tr.par, tr.var)
+      st <- tr.func(st.par, tr.var)
       vecR <- (1-st)*matrix(R1, nobs, ndim^2, byrow=TRUE) + st*matrix(R2, nobs, ndim^2, byrow=TRUE)
       Id <- diag(length(a))
       inih <- solve(Id-A-B)%*%a

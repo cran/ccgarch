@@ -1,5 +1,5 @@
-fa8179a54748db74ab02054efb7ee792 *ChangeLog
-da04f8b4da58cb03f93980c58c6e1718 *DESCRIPTION
+99f3f993c8e780091edfd69b620d2552 *ChangeLog
+05730b796a80b04a41a6931ad321ab09 *DESCRIPTION
 f7b3860c494f4d27c43ebf59161cd475 *NAMESPACE
 ee88e406a53551062dfec8eb87df9f8c *R/R_dcc.R
 eb49720cd3b1fb3e131b8c720d1a880f *R/analytical_Hessian.R
@@ -30,7 +30,7 @@ cdde42e2f49c2b2991be32d3a210ac6f *R/nt_test.R
 912d54352f0794a7e1117107846de6f4 *R/robust_skewness.R
 b49f2a46fd4d22cb8c7e2389283cd1a3 *R/simulate_dcc.R
 cc8f36092d181c2f488d51b19e37511b *R/simulate_eccc.R
-16b7dcc69abfc4328a0034ad5b0dd748 *R/simulate_stcc.R
+d042e052356cc7d92db357153a8bf1f3 *R/simulate_stcc.R
 9b822b94403d81a6ff1962769cb8d8a5 *R/stationarity.R
 73fde8de00cf7f932b32ef5cbb32339d *R/tr_func.R
 86a399ba8a00aedc2610287a33b5c5dd *R/uni_vola.R

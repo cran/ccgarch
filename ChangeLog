@@ -1,6 +1,7 @@
-Changes in ver 0.2.2
-   * fixed a bug in 
-
+Cnange in ver 0.2.3
+   * fixed a bug in "stcc.sims()".
+      st <- tr.func(tr.par, tr.var) shoule be st <- tr.func(st.par, tr.var)
+  
 Changes in Ver 0.2.0-2
    * the same as those in Ver 0.2.0-1 with some corrections in Rd files.
 
